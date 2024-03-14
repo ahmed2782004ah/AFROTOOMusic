@@ -73,7 +73,7 @@ def display_hms(client, callback):
     callback.answer( "بطل لعب ف حاجه مش بتاعتك يابابا 🗿", show_alert = True )
   
   @app.on_callback_query(filters.regex("hms_cancel"), group=788166511)
-def display_hms(client, callback):
+  def display_hms(client, callback):
   
   global waiting_for_hms
   waiting_for_hms = False
