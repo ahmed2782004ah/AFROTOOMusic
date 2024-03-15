@@ -52,15 +52,19 @@ async def send_hms(client, message):
     
     await message.reply_text("-> تم ارسال الهمسه.\n√")
     
-    app.send_message(
-      chat_id = in_id,
+    await app.send_message(
+      chat_id = in_id, 
       text = f"╖ المستخدم [{app.get_chat(to_id).first_name}]({to_url})\n⬡ لديك همسه من البني آدم دا [{app.get_chat(from_id).first_name}]({from_url})\n╜انت فقط من يستطيع رؤيتها ",
-      reply_markup = InlineKeyboardMarkup ([[InlineKeyboardButton("- اضغط لرؤية الهمسه 👀", callback_data = "hms_answer")]])
-    )
+      reply_markup = InlineKeyboardMarkup ([[
+        InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
+     ],[InlineKeyboardButton("مستلم الهمسه✨♥", url=f"tg://openmessage?user_id={to_id}")
+     ],[InlineKeyboardButton("مرسل الهمسه✨♥", url=f"{from_url}")]])
+      
+     ) 
     
     waiting_for_hms = False
   
-@app.on_callback_query(filters.regex("hms_answer"), group=7881334211)
+@app.on_callback_query(filters.regex("hms_answer"), group=5766565)
 def display_hms(client, callback):
   
   in_id = callback.message.chat.id
@@ -72,8 +76,8 @@ def display_hms(client, callback):
   else:
     callback.answer( "بطل لعب ف حاجه مش بتاعتك يابابا 🗿", show_alert = True )
     
-@app.on_callback_query(filters.regex("hms_cancel"), group=788166511)
-def display_hms(client, callback):
+@app.on_callback_query(filters.regex("hms_cancel"), group=57967)
+def cancel_hms(client, callback):
   
   global waiting_for_hms
   waiting_for_hms = False
