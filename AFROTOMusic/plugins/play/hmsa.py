@@ -54,7 +54,7 @@ async def send_hms(client, message):
     
     await app.send_message(
       chat_id = in_id, 
-      text = f"╖ المستخدم [{app.get_chat(to_id).first_name}]({to_url})\n⬡ لديك همسه من البني آدم دا [{app.get_chat(from_id).first_name}]({from_url})\n╜انت فقط من يستطيع رؤيتها ",
+      text = f"تم استلام همسه جديده ✨♥\nلروئيه الهمسه في الزر بالاسفل ✨♥\nفقط المرسل اليه الهمسه هو الي يقدر يشوفها 🔐",
       reply_markup = InlineKeyboardMarkup ([[
         InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
      ],[InlineKeyboardButton("مستلم الهمسه✨♥", url=f"tg://openmessage?user_id={to_id}")
