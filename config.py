@@ -11,6 +11,15 @@ from OWNER import BOT_TOKEN, OWNER, OWNER_NAME, DATABASE, CHANNEL, GROUP, LOGS, 
 super_sudoers = [5904216848]
 
 load_dotenv()
+admins = {}
+user = {}
+call = {}
+dev = {}
+logger = {}
+logger_mode = {}
+botname = {}
+appp = {}
+helper = {}
 
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID", 21769847))
