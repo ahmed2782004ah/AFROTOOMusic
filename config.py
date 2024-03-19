@@ -28,6 +28,14 @@ LOGGER_ID = int(getenv("LOGGER_ID", None))
 # Get this value from @FallenxBot on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID", 5904216848))
 
+OWNER = OWNER
+
+OWNER_NAME = OWNER_NAME
+CHANNEL = CHANNEL
+GROUP = GROUP
+LOGS = LOGS
+VIDEO = VIDEO
+
 FAILED = "https://telegra.ph/file/1105de1e03f0ba27ba095.jpg"
 
 ## Fill these variables if you're deploying on heroku.
