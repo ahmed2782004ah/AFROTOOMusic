@@ -30,6 +30,7 @@ LOGGER_ID = int(getenv("LOGGER_ID", None))
 # Get this value from @FallenxBot on Telegram by /id
 OWNER_ID = int(getenv("OWNER_ID", 5904216848))
 
+MONGO_DB_URL = DATABASE
 OWNER = OWNER
 OWNER_NAME = OWNER_NAME
 CHANNEL = CHANNEL
