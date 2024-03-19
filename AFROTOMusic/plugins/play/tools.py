@@ -3,7 +3,6 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyb
 from config import logger as log, logger_mode as logm, OWNER
 from AFROTOMusic.plugins.play.info import (get_served_chats, get_served_users, del_served_chat, del_served_user, activecall, add_active_chat, add_served_call, add_active_video_chat)
 from AFROTOMusic.plugins.play.Data import Bots
-from AFROTOMusic.plugins.play.play import (logs, join_call)
 from AFROTOMusic.plugins.play.Data import (get_userbot, get_dev, get_call, get_group, get_channel)
 import aiohttp
 import asyncio
