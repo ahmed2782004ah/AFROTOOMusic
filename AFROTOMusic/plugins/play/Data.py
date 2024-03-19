@@ -194,7 +194,7 @@ async def get_userbot(bot_username):
        bot = i["bot_username"]
        if bot == bot_username:
          session = i["session"]
-         userbot = Client("SEMO", api_id=API_ID, api_hash=API_HASH, session_string=session)
+         userbot = Client("AFROTOMusic", api_id=API_ID, api_hash=API_HASH, session_string=session)
          user[bot_username] = userbot
          return userbot
   return userbot
