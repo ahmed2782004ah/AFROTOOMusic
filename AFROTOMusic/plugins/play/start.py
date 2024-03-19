@@ -4,8 +4,8 @@ from pyromod import listen
 from pyrogram import Client as app
 from time import time
 from config import OWNER, OWNER_NAME, VIDEO
-from SEMO.info import (is_served_chat, add_served_chat, is_served_user, add_served_user, get_served_chats, get_served_users, del_served_chat, joinch)
-from SEMO.Data import (get_dev, get_bot_name, set_bot_name, get_logger, get_group, get_channel, get_dev_name, get_groupsr, get_channelsr, get_userbot)
+from AFROTOMusic.plugins.play.info import (is_served_chat, add_served_chat, is_served_user, add_served_user, get_served_chats, get_served_users, del_served_chat, joinch)
+from AFROTOMusic.plugins.play.Data import (get_dev, get_bot_name, set_bot_name, get_logger, get_group, get_channel, get_dev_name, get_groupsr, get_channelsr, get_userbot)
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, Message, User, ChatPrivileges, ReplyKeyboardRemove, CallbackQuery
 from pyrogram import enums
 from pyrogram.enums import ChatType, ChatMemberStatus, ParseMode, ChatMemberStatus
