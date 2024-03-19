@@ -8,7 +8,6 @@ import config
 from AFROTOMusic import LOGGER, app, userbot
 from AFROTOMusic.core.call import Zelzaly
 from AFROTOMusic.misc import sudo
-from bot import *
 from AFROTOMusic.plugins import ALL_MODULES
 from AFROTOMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
