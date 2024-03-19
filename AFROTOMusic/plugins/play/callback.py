@@ -1,7 +1,7 @@
 from pyrogram import filters, Client 
 from config import OWNER_NAME, GROUP
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
-from SEMO.Data import get_dev, get_group, get_channel, get_dev_name
+from AFROTOMusic.plugins.play.Data import get_dev, get_group, get_channel, get_dev_name
 
 
 @Client.on_callback_query(filters.regex("arbic"))
