@@ -35,8 +35,8 @@ from config import API_ID, API_HASH, MONGO_DB_URL, VIDEO, OWNER, OWNER_NAME, LOG
 from motor.motor_asyncio import AsyncIOMotorClient as _mongo_client_
 from pymongo import MongoClient
 from bot import bot as man
-from SEMO.info import (db, add, is_served_call, add_active_video_chat, add_served_call, add_active_chat, gen_thumb, download, remove_active, joinch)
-from SEMO.Data import (get_logger, get_userbot, get_call, get_logger_mode, get_group, get_channel)
+from AFROTOMusic.plugins.play.info import (db, add, is_served_call, add_active_video_chat, add_served_call, add_active_chat, gen_thumb, download, remove_active, joinch)
+from AFROTOMusic.plugins.play.Data import (get_logger, get_userbot, get_call, get_logger_mode, get_group, get_channel)
 import asyncio
              
 mongodb = _mongo_client_(MONGO_DB_URL)
