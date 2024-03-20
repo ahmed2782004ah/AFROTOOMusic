@@ -21,7 +21,7 @@ async def zdatsr(client: Client, message: Message):
      photo=photo,
      caption=f"**Developer Name : {name}** \n**Devloper Username : @{username}**\n**{bio}**",
      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{name}", user_id=f"{user_id}")]]))
-     try:
+       try:
        os.remove(photo)
      except:
         pass
