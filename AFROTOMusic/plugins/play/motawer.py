@@ -15,10 +15,9 @@ async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(OWNER_ID)
     name = usr.first_name
     usrnam = usr.username
-    bio = user.bio
     await message.reply_photo(
         photo=f"https://telegra.ph/file/ee99f5b99514304efeffd.jpg",
-        caption=f"**Developer Name : {name}** \n**Devloper Username : @{username}**\n**{bio}**",
+        caption=f"**Developer Name : {name}** \n**Devloper Username : @{username}**",
 reply_markup=InlineKeyboardMarkup(
           [               
             [            
