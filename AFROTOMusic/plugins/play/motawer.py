@@ -32,8 +32,4 @@ reply_markup=InlineKeyboardMarkup(
           ]              
        )                 
     )                    
-                    sender_id = message.from_user.id
-                    sender_name = message.from_user.first_name
-                    await app.send_message(OWNER, f"الواد {message.from_user.mention} دا بينادي عليك \n\n الايدي بتاعه : {sender_id} \n\n اسمه : {sender_name}")
-                    return await app.send_message(config.LOG_GROUP_ID, f"الواد {message.from_user.mention} دا بينادي عليك \n\n الايدي بتاعه : {sender_id} \n\n اسمه : {sender_name}")
-
+                    
