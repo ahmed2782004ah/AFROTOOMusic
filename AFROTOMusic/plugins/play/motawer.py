@@ -17,7 +17,7 @@ async def kimmyy(client: Client, message: Message):
     photo = user.photo.big_file_id
     photo = await client.download_media(photo)
     await message.reply_photo(
-    photo,       caption=f"""**ᯓ 「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」، ⦃𓏛**
+    user.photo.big_file_id,       caption=f"""**ᯓ 「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」، ⦃𓏛**
                     
 🔥 ¦𝚆𝙾𝙽𝙴𝚁 :[{usr.first_name}](https://t.me/{OWNER})
 📀 ¦𝚄𝚂𝙴𝚁 :@{OWNER} 
