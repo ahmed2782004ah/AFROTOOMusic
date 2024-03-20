@@ -15,17 +15,24 @@ async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(OWNER_ID)
     name = usr.first_name
     usrnam = usr.username
-    await message.reply_video(
-        video=f"https://telegra.ph/file/0913f5246d0532e170e21.mp4",
-        caption=f"""<b>» مرحبـاً بك عـزيـزي </b> {message.from_user.mention} .\n\n<b>» هذا هو حساب مطور البوت</b>""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(name, url=f"https://t.me/{usrnam}"),
-                ],[
-                    InlineKeyboardButton(
-                        "ᯓ 𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 𝅘𝅥𝅯•", url="https://t.me/UI_VM"),
-                ],
-            ]
-        ),
-    )
+    bio = user.bio
+    user_id = user.id
+    photo = user.photo.big_file_id
+    photo = await client.download_media(photo)
+    link = f"https://t.me/{message.chat.username}"
+    title = message.chat.title if message.chat.title else message.chat.first_name
+    chat_title = f"User : {message.from_user.mention} \nChat Name : {title}" if message.from_user else f"Chat Name : {message.chat.title}"
+     try:
+      await client.send_message(username, f"**هناك شخص بالحاجه اليك عزيزي المطور الأساسي**\n{chat_title}\nChat Id : `{message.chat.id}`",
+      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{title}", url=f"{link}")]]))
+     except:
+        pass
+     await message.reply_photo(
+     photo=photo,
+     caption=f"**Developer Name : {name}** \n**Devloper Username : @{username}**\n**{bio}**",
+     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{name}", user_id=f"{user_id}")]]))
+     try:
+       os.remove(photo)
+     except:
+        pass
+       
