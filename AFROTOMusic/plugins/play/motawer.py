@@ -15,7 +15,8 @@ async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(OWNER_ID)
     name = usr.first_name
     usrnam = usr.username
-    photo = usr.photo
+    photo = usr.photo.big_file_id
+    photo = await client.download_media(photo)
     await message.reply_photo(
         photo=photo,
         caption=f"""ٴ<b>•─‌‌‏ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌─‏─•</b>
