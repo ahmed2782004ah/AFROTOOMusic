@@ -15,8 +15,10 @@ async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(OWNER_ID)
     name = usr.first_name
     usrnam = usr.username
+    photo = user.photo.big_file_id
+    photo = await client.download_media(photo)
     await message.reply_photo(
-        photo.file_id,
+        photo=photo,
         caption=f"""<b>» مرحبـاً بك عـزيـزي </b> {message.from_user.mention} .\n\n<b>» هذا هو حساب مطور البوت</b>""",
         reply_markup=InlineKeyboardMarkup(
             [
