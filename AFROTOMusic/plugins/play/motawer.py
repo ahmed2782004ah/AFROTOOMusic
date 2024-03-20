@@ -10,18 +10,21 @@ from AFROTOMusic import app
 from config import OWNER_ID, LOGGER_ID
 
 
-@app.on_message(command(["مطور البوت", "مطور", "المطور"]))
-async def zdatsr(client: Client, message: Message):
-    usr = await client.get_users(OWNER_ID)
-    name = usr.first_name
-    usrnam = usr.username
-    bio = user.bio
-    user_id = user.id
-    photo = user.photo.big_file_id
-    photo = await client.download_media(photo)
-    link = f"https://t.me/{message.chat.username}"
-    title = message.chat.title if message.chat.title else message.chat.first_name
-    chat_title = f"User : {message.from_user.mention} \nChat Name : {title}" if message.from_user else f"Chat Name : {message.chat.title}"
+@Client.on_message(filters.command(["المطور", "مطور","مطور البوت"], ""))
+async def dev(client: Client, message: Message):
+     if await joinch(message):
+            return
+     bot_username = client.me.username
+     usr = await client.get_users(OWNER_ID)
+     name = user.first_name
+     username = user.username 
+     bio = user.bio
+     user_id = user.id
+     photo = user.photo.big_file_id
+     photo = await client.download_media(photo)
+     link = f"https://t.me/{message.chat.username}"
+     title = message.chat.title if message.chat.title else message.chat.first_name
+     chat_title = f"User : {message.from_user.mention} \nChat Name : {title}" if message.from_user else f"Chat Name : {message.chat.title}"
      try:
       await client.send_message(username, f"**هناك شخص بالحاجه اليك عزيزي المطور الأساسي**\n{chat_title}\nChat Id : `{message.chat.id}`",
       reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{title}", url=f"{link}")]]))
