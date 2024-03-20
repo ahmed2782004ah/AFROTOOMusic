@@ -17,13 +17,19 @@ async def zdatsr(client: Client, message: Message):
     usrnam = usr.username
     await message.reply_photo(
         photo=f"https://telegra.ph/file/ee99f5b99514304efeffd.jpg",
-        caption=f"**Developer Name : {name}** \n**Devloper Username : @{usrnam}**",
+        caption=f"""ٴ<b>•─‌‌‏ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌─‏─•</b>
+                    
+- o𝚆𝙽𝙴𝚁 :[{name}]
+- 𝚄𝚂𝙴𝚁 :@{usrnam} 
+- 𝙸𝙳 :`{usr.id}`
+ 
+ٴ<b>•──‌‌𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ──‌‌‏─‌•</b> """, 
 reply_markup=InlineKeyboardMarkup(
           [               
             [            
               InlineKeyboardButton (name, url=f"https://t.me/{usrnam}"),
             ],[
-              InlineKeyboardButton("•✯ ᴢᴛʜᴏɴ_ᴍᴜsɪᴄ ✯•", url="https://t.me/Zelzal_Music"),
+              InlineKeyboardButton(" 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌", url="https://t.me/UI_VM"),
             ],
           ]
        )                 
