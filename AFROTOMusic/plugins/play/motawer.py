@@ -36,9 +36,4 @@ reply_markup=InlineKeyboardMarkup(
           ]
        )                 
     )                    
-                    sender_id = message.from_usr.id
-                    sender_name = message.from_usr.first_name
-                    senderusr = message.from_usr.username
-                    sender_usr = "@{senderusr}" if senderusr else "لا يوجـد"
-                    await app.send_message(OWNER_ID, f"- المستخـدم {message.from_usr.mention} يناديـك \n\n- الاسـم : {sender_name} \n- الايـدي : {sender_id}\n- اليـوزر : {sender_usr}")
-                    return await app.send_message(LOGGER_ID, f"- المستخـدم {message.from_usr.mention} يناديـك \n\n- الاسـم : {sender_name} \n- الايـدي : {sender_id}\n- اليـوزر : {sender_usr}")
+                    
