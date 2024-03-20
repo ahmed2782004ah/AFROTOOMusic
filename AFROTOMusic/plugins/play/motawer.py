@@ -11,25 +11,21 @@ from config import OWNER_ID, LOGGER_ID
 
 
 @app.on_message(command(["مطور البوت", "مطور", "المطور"]))
-async def kimmyy(client: Client, message: Message):
-    usr = await client.get_users(OWNER)
+async def zdatsr(client: Client, message: Message):
+    usr = await client.get_users(OWNER_ID)
     name = usr.first_name
-    photo = user.photo.big_file_id
-    photo = await client.download_media(photo)
+    usrnam = usr.username
     await message.reply_photo(
-    user.photo.big_file_id,       caption=f"""**ᯓ 「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」، ⦃𓏛**
-                    
-🔥 ¦𝚆𝙾𝙽𝙴𝚁 :[{usr.first_name}](https://t.me/{OWNER})
-📀 ¦𝚄𝚂𝙴𝚁 :@{OWNER} 
-🆔 ¦𝙸𝙳 :`{usr.id}`
- 
-**ᯓ 「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」، ⦃𓏛** """, 
-reply_markup=InlineKeyboardMarkup(
-          [               
-            [            
-              InlineKeyboardButton (name, url=f"https://t.me/{OWNER}")
-            ],                   
-          ]              
-       )                 
-    )                    
-                    
+        photo.file_id,
+        caption=f"""<b>» مرحبـاً بك عـزيـزي </b> {message.from_user.mention} .\n\n<b>» هذا هو حساب مطور البوت</b>""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(name, url=f"https://t.me/{usrnam}"),
+                ],[
+                    InlineKeyboardButton(
+                        "ᯓ 𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 𝅘𝅥𝅯•", url="https://t.me/UI_VM"),
+                ],
+            ]
+        ),
+    )
