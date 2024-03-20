@@ -11,17 +11,27 @@ from config import OWNER_ID, LOGGER_ID
 
 
 @app.on_message(command(["مطور البوت", "مطور", "المطور"]))
-async def zdatsr(client: Client, message: Message):
-    usr = await client.get_users(OWNER_ID)
+async def kimmyy(client: Client, message: Message):
+    usr = await client.get_users(OWNER)
     name = usr.first_name
-    usrnam = usr.username
-    photo = user.photo.big_file_id
-    photo = await client.download_media(photo)
-    await message.reply_photo(
-     photo=photo,
-     caption=f"**Developer Name : {name}** \n**Devloper Username : @{username}**\n**{bio}**",
-     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{name}", user_id=f"{user_id}")]]))
-       try:
-       os.remove(photo)
-     except:
-        pass
+    async for photo in client.iter_profile_photos(OWNER, limit=1):
+                    await message.reply_photo(photo.file_id,       caption=f"""**ᯓ 「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」، ⦃𓏛**
+                    
+🔥 ¦𝚆𝙾𝙽𝙴𝚁 :[{usr.first_name}](https://t.me/{OWNER})
+📀 ¦𝚄𝚂𝙴𝚁 :@{OWNER} 
+🆔 ¦𝙸𝙳 :`{usr.id}`
+ 
+**ᯓ 「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」، ⦃𓏛** """, 
+reply_markup=InlineKeyboardMarkup(
+          [               
+            [            
+              InlineKeyboardButton (name, url=f"https://t.me/{OWNER}")
+            ],                   
+          ]              
+       )                 
+    )                    
+                    sender_id = message.from_user.id
+                    sender_name = message.from_user.first_name
+                    await app.send_message(OWNER, f"الواد {message.from_user.mention} دا بينادي عليك \n\n الايدي بتاعه : {sender_id} \n\n اسمه : {sender_name}")
+                    return await app.send_message(config.LOG_GROUP_ID, f"الواد {message.from_user.mention} دا بينادي عليك \n\n الايدي بتاعه : {sender_id} \n\n اسمه : {sender_name}")
+
