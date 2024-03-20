@@ -37,9 +37,4 @@ reply_markup=InlineKeyboardMarkup(
        )                 
     )                    
 
-                    sender_id = message.from_user.id
-                    sender_name = message.from_user.first_name
-                    senderuser = message.from_user.username
-                    sender_user = "@{senderuser}" if senderuser else "لا يوجـد"
-                    await app.send_message(OWNER_ID, f"- المستخـدم {message.from_user.mention} يناديـك \n\n- الاسـم : {sender_name} \n- الايـدي : {sender_id}\n- اليـوزر : {sender_user}")
-                    return await app.send_message(LOGGER_ID, f"- المستخـدم {message.from_user.mention} يناديـك \n\n- الاسـم : {sender_name} \n- الايـدي : {sender_id}\n- اليـوزر : {sender_user}")
+                    
