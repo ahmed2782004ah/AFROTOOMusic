@@ -80,10 +80,10 @@ async def adlist(_, message):
 @app.on_message(filters.regex("^البوتات$"))
 async def botslist(_, message):
     chat_id = message.chat.id
-    rnryr = "- قائمة البوتات\n— — — — —\n"
-    async for b in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.BOTS):
-           rnryr+=f"› {'@'+b.user.username if b.user.username else b.user.mention} - `{b.user.id}` .\n"
-    await message.reply(text=(ahmed))
+    bot = "- قائمة البوتات\n— — — — —\n"
+    async for bots in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.BOTS):
+           bot+=f"› {'@'+b.user.username if b.user.username else b.user.mention} - `{b.user.id}` .\n"
+    await message.reply(text=(bot))
 '''
 Programmed by :  @UI_VM
    Channel -› • @T_Y_E_X
