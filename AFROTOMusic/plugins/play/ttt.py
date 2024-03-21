@@ -33,7 +33,7 @@ def get_file_id(msg: Message):
                 return obj
 
 
-@app.on_message(command(["مطور البوت", "مطور", "المطور"]))
+@app.on_message(command(["اقتله ", "تخ", "قتل"]))
 async def zdatsr(client: Client, message: Message):
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
