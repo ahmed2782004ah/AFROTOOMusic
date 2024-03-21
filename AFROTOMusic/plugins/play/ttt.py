@@ -39,7 +39,7 @@ async def zdatsr(client: Client, message: Message):
     from_url = f"tg://openmessage?user_id={from_id}"
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
-        caption=f"""↯︙قتل ↫ {app.get_chat(to_url) الضحيه دا 😢 ↫ [{app.get_chat(from_url)انا لله وانـا اليـه راجعـون 😢😢""",
+        caption=f"""↯︙قتل ↫ ({to_url}) الضحيه دا 😢 ↫ ({from_url})انا لله وانـا اليـه راجعـون 😢😢""",
     )
     reply_markup=InlineKeyboardMarkup(
 
