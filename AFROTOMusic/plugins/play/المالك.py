@@ -16,21 +16,31 @@ from pyrogram.errors import FloodWait
 
 
 
-@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
-async def gak_owne(client: Client, message: Message):
-      if len(message.command) >= 2:
-         return 
-      else:
-            chat_id = message.chat.id
-            f = "administrators"
-            async for member in client.iter_chat_members(chat_id, filter=f):
-               if member.status == "creator":
-                 id = member.user.id
-                 key = InlineKeyboardMarkup([[InlineKeyboardButton(member.user.first_name, user_id=id)]])
-                 m = await client.get_chat(id)
-                 if m.photo:
-                       photo = await app.download_media(m.photo.big_file_id)
-                       return await message.reply_photo(photo, caption=f"",reply_markup=key)
-                 else:
-                    return await message.reply("• " + member.user.mention)
+@app.on_message(command(["مطور البوت", "المالك", "المنشئ"]))
+async def zdatsr(client: Client, message: Message):
+    usr = await client.get_users(creator)
+    name = usr.first_name
+    usrnam = usr.username
+    photo = usr.photo.big_file_id
+    photo = await client.download_media(photo)
+    
+    await message.reply_photo(
+        photo=photo,
+        caption=f"""ٴ<b>•─‌‌‏ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌─‏─•</b>
+                    
+- o𝚆𝙽𝙴𝚁 :[{name}]
+- 𝚄𝚂𝙴𝚁 :@{usrnam} 
+- 𝙸𝙳 :`{usr.id}`
+ 
+ٴ<b>•──‌‌𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ──‌‌‏─‌•</b> """, 
+reply_markup=InlineKeyboardMarkup(
+          [               
+            [            
+              InlineKeyboardButton (name, url=f"https://t.me/{usrnam}"),
+            ],[
+              InlineKeyboardButton(" 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌", url="https://t.me/UI_VM"),
+            ],
+          ]
+       )                 
+    )                    
                     
