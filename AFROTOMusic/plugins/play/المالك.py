@@ -10,7 +10,7 @@ from AFROTOMusic import app
 from config import OWNER_ID, LOGGER_ID
 
 
-@app.on_message(command(["مطور البوت", "مطور", "المطور"]))
+@app.on_message(command([" مالك المجموعه", "مالك", "المالك"]))
 async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(creator)
     name = usr.first_name
