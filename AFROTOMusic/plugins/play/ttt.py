@@ -33,16 +33,13 @@ def get_file_id(msg: Message):
                 return obj
 
 
-@app.on_message(command(["تخ"]) & filters.group)
-async def huhh(client, message):
-    to_id = int(caption.split("to")[-1].split("in")[0])
-    from_id = int(caption.split("caption")[-1].split("to")[0])
-    in_id = int(caption.split("in")[-1])
+@app.on_message(command(["مطور البوت", "مطور", "المطور"]))
+async def zdatsr(client: Client, message: Message):
     to_url = f"tg://openmessage?user_id={to_id}"
     from_url = f"tg://openmessage?user_id={from_id}"
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
-        caption=f"""↯︙قتل ↫ ⦗ {app.get_chat(to_id).first_name}]({to_url}) ⦘\nالضحيه دا 😢 ↫ ⦗ [{app.get_chat(from_id).first_name}]({from_url}) ⦘\nانا لله وانـا اليـه راجعـون 😢😢""",
+        caption=f"""↯︙قتل ↫ ⦗ {app.get_chat({to_url}) ⦘\nالضحيه دا 😢 ↫ ⦗ [{app.get_chat({from_url}) ⦘\nانا لله وانـا اليـه راجعـون 😢😢""",
     )
     reply_markup=InlineKeyboardMarkup(
 
@@ -53,4 +50,3 @@ async def huhh(client, message):
            ],
        ]
     ),
-  
