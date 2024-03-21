@@ -37,8 +37,6 @@ def get_file_id(msg: Message):
 async def zdatsr(client: Client, message: Message):
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
-        caption=f"""↯︙قتل ↫ ({to_url}) الضحيه دا 😢 ↫ ({from_url})انا لله وانـا اليـه راجعـون 😢😢""",
-    )
     reply_markup=InlineKeyboardMarkup(
 
        [
