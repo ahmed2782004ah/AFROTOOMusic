@@ -69,7 +69,7 @@ def del_rdod(id) -> bool:
 Programmed by :  @UI_VM
    Channel -› • @T_Y_E_X
 '''
-@app.on_message(filters.regex("^المشرفين$"))
+@app.on_message(filters.regex("^الادمنيه$"))
 async def adlist(_, message):
     chat_id = message.chat.id
     admin = "- قائمة المشرفين\n— — — — —\n"
