@@ -35,22 +35,16 @@ def get_file_id(msg: Message):
 
 @app.on_message(command(["اقتله ", "تخ", "قتل"]))
 async def zdatsr(client: Client, message: Message):
-    to_id = int(.split("to")[-1].split("in")[0])
-    from_id = int(.split("ahmed")[-1].split("to")[0])
-    in_id = int(caption.split("in")[-1])
-    to_url = f"tg://openmessage?user_id={to_id}"
-    from_url = f"tg://openmessage?user_id={from_id}"
-    ahmed = message.text
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
-        caption=f"""↯︙قتل ↫ ⦗ {app.get_chat(to_id).first_name}]({to_url}) ⦘\nالضحيه دا 😢 ↫ ⦗ [{app.get_chat(from_id).first_name}]({from_url}) ⦘\nانا لله وانـا اليـه راجعـون 😢😢""",
+        caption=f"""لي قتلته هتدخل السجن كدا 🥺🥺""",
     )
     reply_markup=InlineKeyboardMarkup(
 
        [
            [
                InlineKeyboardButton(
-                   "‹ : 𝖬𝖺𝖳𝗋𝗂x 𝖳𝖾𝖠𝗆 : ›", url=f"https://t.me/XMATTMX"),
+                   " 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌", url=f"https://t.me/UI_VM"),
            ],
        ]
     ),
