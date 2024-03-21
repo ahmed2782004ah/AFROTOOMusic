@@ -35,8 +35,8 @@ def get_file_id(msg: Message):
 
 @app.on_message(command(["اقتله ", "تخ", "قتل"]))
 async def zdatsr(client: Client, message: Message):
-    to_id = int(ahmed.split("to")[-1].split("in")[0])
-    from_id = int(ahmed.split("ahmed")[-1].split("to")[0])
+    to_id = int(.split("to")[-1].split("in")[0])
+    from_id = int(.split("ahmed")[-1].split("to")[0])
     in_id = int(caption.split("in")[-1])
     to_url = f"tg://openmessage?user_id={to_id}"
     from_url = f"tg://openmessage?user_id={from_id}"
