@@ -33,17 +33,20 @@ def get_file_id(msg: Message):
                 return obj
 
 
-@app.on_message(command(["اقتله ", "تخ", "قتل"]))
-async def zdatsr(client: Client, message: Message):
+@app.on_message(
+    command(["بيو","تخ","موت","غور", "قتل"])
+)
+async def huhh(client: Client, message: Message):
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
-        caption=f"""لي قتلته هتدخل السجن كدا 🥺🥺""",
-    reply_markup=InlineKeyboardMarkup(
-
-       [
-           [
-               InlineKeyboardButton(
-                   " 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌", url=f"https://t.me/UI_VM"),
-           ],
-       ]
-    ),
+        caption=f"""
+لي قتلته هتدخل السجن كدا 🥺🥺""",
+        reply_markup=InlineKeyboardMarkup(
+        [
+            [
+                    InlineKeyboardButton(
+                        "「𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」‌", url=f"https://t.me/UI_VM"),
+            ]
+        ]
+         ),
+    )
