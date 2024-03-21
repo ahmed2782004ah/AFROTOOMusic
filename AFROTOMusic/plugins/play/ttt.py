@@ -38,7 +38,6 @@ async def zdatsr(client: Client, message: Message):
     await message.reply_animation(
         animation=f"https://telegra.ph/file/5a18fe591860a8a98f39f.mp4",
         caption=f"""لي قتلته هتدخل السجن كدا 🥺🥺""",
-    )
     reply_markup=InlineKeyboardMarkup(
 
        [
