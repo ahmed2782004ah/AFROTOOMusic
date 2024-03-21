@@ -23,7 +23,7 @@ async def zdatsr(client: Client, message: Message):
     try:
      await client.send_message(username, f"**هناك شخص بالحاجه اليك عزيزي المطور الأساسي**\n{chat_title}\nChat Id : `{message.chat.id}`",
      reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{title}", url=f"{link}")]]))
-     except:
+    except:
         pass
     await message.reply_photo(
         photo=photo,
