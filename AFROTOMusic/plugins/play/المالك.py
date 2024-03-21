@@ -1,47 +1,36 @@
 import asyncio
 import os
+import time
 import requests
-import pyrogram
-from pyrogram import Client, filters, emoji
-from strings.filters import command
+import aiohttp
+from pyrogram import filters
+from pyrogram import Client
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
-from pyrogram.errors import MessageNotModified
-from AFROTOMusic import app
-from config import OWNER_ID, LOGGER_ID
+from strings.filters import command
+from YukkiMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from YukkiMusic import app
+from asyncio import gather
+from pyrogram.errors import FloodWait
 
 
-@app.on_message(command([" مالك المجموعه", "مالك", "المالك"]))
-async def zdatsr(client: Client, message: Message):
-    usr = await client.get_users(creator)
-    name = usr.first_name
-    usrnam = usr.username
-    photo = usr.photo.big_file_id
-    photo = await client.download_media(photo)
-    link = f"https://t.me/{message.chat.username}"
-    title = message.chat.title if message.chat.title else message.chat.first_name
-    chat_title = f"User : {message.from_user.mention} \nChat Name : {title}" if message.from_user else f"Chat Name : {message.chat.title}"
-    try:
-     await client.send_message(usrnam, f"**هناك شخص بالحاجه اليك عزيزي المطور الأساسي**\n{chat_title}\nChat Id : `{message.chat.id}`",
-     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(f"{title}", url=f"{link}")]]))
-    except:
-        pass
-    await message.reply_photo(
-        photo=photo,
-        caption=f"""ٴ<b>•─‌‌‏ 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌─‏─•</b>
-                    
-- o𝚆𝙽𝙴𝚁 :[{name}]
-- 𝚄𝚂𝙴𝚁 :@{usrnam} 
-- 𝙸𝙳 :`{usr.id}`
- 
-ٴ<b>•──‌‌𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ──‌‌‏─‌•</b> """, 
-reply_markup=InlineKeyboardMarkup(
-          [               
-            [            
-              InlineKeyboardButton (name, url=f"https://t.me/{usrnam}"),
-            ],[
-              InlineKeyboardButton(" 𝚂𝙾𝚞𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌", url="https://t.me/UI_VM"),
-            ],
-          ]
-       )                 
-    )                    
+
+
+
+@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]))
+async def gak_owne(client: Client, message: Message):
+      if len(message.command) >= 2:
+         return 
+      else:
+            chat_id = message.chat.id
+            f = "administrators"
+            async for member in client.iter_chat_members(chat_id, filter=f):
+               if member.status == "creator":
+                 id = member.user.id
+                 key = InlineKeyboardMarkup([[InlineKeyboardButton(member.user.first_name, user_id=id)]])
+                 m = await client.get_chat(id)
+                 if m.photo:
+                       photo = await app.download_media(m.photo.big_file_id)
+                       return await message.reply_photo(photo, caption=f"🕷 ¦𝙽𝙰𝙼𝙴 :{m.first_name}\n🐉 ¦𝚄𝚂𝙴𝚁 :@{m.username}\n🐰 ¦𝙸𝙳 :`{m.id}`\n🎬 ¦𝙱𝙸𝙾 :{m.bio}\n💎 ¦𝙲𝙷𝙰𝚃: {message.chat.title}\n🗿 ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :`{message.chat.id}`",reply_markup=key)
+                 else:
+                    return await message.reply("• " + member.user.mention)
                     
