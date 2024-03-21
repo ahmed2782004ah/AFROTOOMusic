@@ -82,7 +82,7 @@ async def botslist(_, message):
     chat_id = message.chat.id
     bot = "- قائمة البوتات\n— — — — —\n"
     async for bots in app.get_chat_members(chat_id, filter=enums.ChatMembersFilter.BOTS):
-           bot+=f"› {'@'+b.user.username if b.user.username else b.user.mention} - `{b.user.id}` .\n"
+           bot+=f"› {'@'+bots.user.username if bots.user.username else bots.user.mention} - `{bots.user.id}` .\n"
     await message.reply(text=(bot))
 '''
 Programmed by :  @UI_VM
