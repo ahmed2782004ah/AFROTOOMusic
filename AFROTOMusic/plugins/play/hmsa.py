@@ -44,7 +44,7 @@ async def hms_start(client, message):
     )
     return
 
-@app.on_message(filters.private & filters.text & ~filters.command("start"), group=576)
+@app.on_message(command(filters.private & filters.group & filters.text & ~filters.command("start"), group=576)
 async def send_hms(client, message):
   
   global waiting_for_hms
