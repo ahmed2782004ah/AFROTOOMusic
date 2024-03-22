@@ -44,7 +44,7 @@ async def send_hms(client, message):
   if waiting_for_hms:    
     to_id = int(hms_ids.split("to")[-1].split("in")[0])
     from_id = int(hms_ids.split("hms")[-1].split("to")[0])
-    in_id = int(hms_ids.split("in")[-1])
+    in_id = int(caption_.split("in")[-1])
     to_url = f"tg://openmessage?user_id={to_id}"
     from_url = f"tg://openmessage?user_id={from_id}"
     
@@ -54,8 +54,8 @@ async def send_hms(client, message):
     
     await app.send_message(
       chat_id = in_id, 
-      text = f"تم استلام همسه جديده ✨♥\nلروئيه الهمسه في الزر بالاسفل ✨♥\nفقط المرسل اليه الهمسه هو الي يقدر يشوفها 🔐",
-       caption=f"""↯︙مرسل الهمسه ↫ ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمستلم الهمسه ↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘""",
+      text
+      caption=f"""↯︙مرسل الهمسه ↫ ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمستلم الهمسه ↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘""",
     )
     reply_markup=InlineKeyboardMarkup(
 
