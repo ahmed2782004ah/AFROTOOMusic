@@ -53,7 +53,6 @@ async def send_hms(client, message):
     await message.reply_text("-> تم ارسال الهمسه.\n√")
     
     await app.send_message(
-      chat_id = in_id, 
       caption=f"""↯︙مرسل الهمسه ↫ ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمستلم الهمسه ↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘""",
     )
     reply_markup=InlineKeyboardMarkup(
