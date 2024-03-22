@@ -61,7 +61,7 @@ async def send_hms(client, message):
     
     await app.send_message(
       chat_id = in_id, 
-      text = f"مستلم الهمسه ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمرسل الهمسه↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘\n ياريت متكنش بتشتمه",
+      text = f"مستلم الهمسه ⦗ {app.get_chat(to_id).first_name}]({to_url}) ⦘\nمرسل الهمسه↫ ⦗ [{app.get_chat(from_id).first_name}]({from_url}) ⦘\n ياريت متكنش بتشتمه",
       reply_markup = InlineKeyboardMarkup ([[
         InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
      ],[InlineKeyboardButton("مستلم الهمسه✨♥", url=f"tg://openmessage?user_id={to_id}")
