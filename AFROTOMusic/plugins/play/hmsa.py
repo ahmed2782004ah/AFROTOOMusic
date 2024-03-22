@@ -1,7 +1,14 @@
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import os
+import asyncio
 from AFROTOMusic import app
+import requests
+import random
+import time
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from strings.filters import command
+from random import  choice, randint
 from config import *
 
 
@@ -54,7 +61,7 @@ async def send_hms(client, message):
     
     await app.send_message(
       chat_id = in_id, 
-      text = f"المرسل ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمستلم الهمسه ↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘\n ياريت متكنش بتشتمه",
+      text = f"مستلم الهمسه ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمرسل الهمسه↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘\n ياريت متكنش بتشتمه",
       reply_markup = InlineKeyboardMarkup ([[
         InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
      ],[InlineKeyboardButton("مستلم الهمسه✨♥", url=f"tg://openmessage?user_id={to_id}")
