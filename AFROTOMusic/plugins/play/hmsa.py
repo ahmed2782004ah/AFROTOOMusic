@@ -53,20 +53,16 @@ async def send_hms(client, message):
     await message.reply_text("-> تم ارسال الهمسه.\n√")
     
     await app.send_message(
-      caption=f"""↯︙مرسل الهمسه ↫ ⦗ {app.get_chat(to_id)}]({to_url}) ⦘\nمستلم الهمسه ↫ ⦗ [{app.get_chat(from_id)}]({from_url}) ⦘""",
-    )
-    reply_markup=InlineKeyboardMarkup(
-
-       [
-           [
-               InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
-               InlineKeyboardButton(
-                   "‹ : 𝖬𝖺𝖳𝗋𝗂x 𝖳𝖾𝖠𝗆 : ›", url=f"https://t.me/XMATTMX"),
-           ],
-       ]
-    ),
+      chat_id = in_id, 
+      text = f"تم استلام همسه جديده ✨♥\nلروئيه الهمسه في الزر بالاسفل ✨♥\nفقط المرسل اليه الهمسه هو الي يقدر يشوفها 🔐",
+      reply_markup = InlineKeyboardMarkup ([[
+        InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
+     ],[InlineKeyboardButton("مستلم الهمسه✨♥", url=f"tg://openmessage?user_id={to_id}")
+     ],[InlineKeyboardButton("مرسل الهمسه✨♥", url=f"{from_url}")]])
       
-      
+     ) 
+    
+    waiting_for_hms = False
   
 @app.on_callback_query(filters.regex("hms_answer"), group=5766565)
 def display_hms(client, callback):
