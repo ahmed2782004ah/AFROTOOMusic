@@ -44,8 +44,9 @@ async def hms_start(client, message):
     )
     return
 
-@app.on_message(command(filters.private & filters.group & filters.text & ~filters.command("start"), group=576)
+@app.on_message(filters.private & filters.text & ~filters.command("start"), group=576)
 async def send_hms(client, message):
+  
   global waiting_for_hms
   if waiting_for_hms:    
     to_id = int(hms_ids.split("to")[-1].split("in")[0])
@@ -60,15 +61,14 @@ async def send_hms(client, message):
     
     await app.send_message(
       chat_id = in_id, 
-      text = f"مستلم الهمسه ⦗ {app.get_chat(to_id).first_name}]({to_url}) ⦘\nمرسل الهمسه↫ ⦗ [{app.get_chat(from_id).first_name}]({from_url}) ⦘\n ياريت متكنش بتشتمه",
+      text = f"تم استلام همسه جديده ✨♥\nلروئيه الهمسه في الزر بالاسفل ✨♥\nفقط المرسل اليه الهمسه هو الي يقدر يشوفها 🔐",
       reply_markup = InlineKeyboardMarkup ([[
         InlineKeyboardButton("- اضغط لرؤية الهمسه 🥺", callback_data = "hms_answer"), 
      ],[InlineKeyboardButton("مستلم الهمسه✨♥", url=f"tg://openmessage?user_id={to_id}")
      ],[InlineKeyboardButton("مرسل الهمسه✨♥", url=f"{from_url}")]])
       
-     ),
-   
-   
+     ) 
+    
     waiting_for_hms = False
   
 @app.on_callback_query(filters.regex("hms_answer"), group=5766565)
