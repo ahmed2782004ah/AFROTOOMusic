@@ -41,26 +41,3 @@ async def vgdg(client: Client, message: Message):
 
 
 
-@Client.on_message(filters.command("تثبيت$", prefixes=f".") & filters.me) 
- async def pin_msg(c,msg): 
-   if msg.reply_to_message: 
-     await c.pin_chat_message( 
-             msg.chat.id, 
-             msg.reply_to_message.id, 
-             disable_notification=False, 
-             both_sides=True 
-         ) 
-     await msg.edit("• تم تثبيت الماسدج بنجاح.🕷") 
-   else: 
-     await msg.edit("• اعمل ريبلاي ع الماسدج الاول يصاحبي وجرب تاني.🕷") 
-@Client.on_message(filters.command("الغاء تثبيت$", prefixes=f".") & filters.me) 
- async def unpin_msg(c,msg): 
-   if msg.reply_to_message: 
-        await c.unpin_chat_message( 
-              msg.chat.id, 
-              msg.reply_to_message.id, 
-          )     
-        await msg.edit("• تم الغاء تثبيت الماسدج بنجاح.🕷") 
-   else: 
-     await msg.edit("• اعمل ريبلاي ع الماسدج الاول يصاحبي وجرب تاني.🕷")
-
