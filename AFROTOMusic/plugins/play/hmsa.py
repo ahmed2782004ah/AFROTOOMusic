@@ -44,7 +44,7 @@ async def send_hms(client, message):
   if waiting_for_hms:    
     to_id = int(hms_ids.split("to")[-1].split("in")[0])
     from_id = int(hms_ids.split("hms")[-1].split("to")[0])
-    in_id = int(caption.split("in")[-1])
+    in_id = int(hms_ids.split("in")[-1])
     to_url = f"tg://openmessage?user_id={to_id}"
     from_url = f"tg://openmessage?user_id={from_id}"
     
