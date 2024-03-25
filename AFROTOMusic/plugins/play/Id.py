@@ -2,6 +2,7 @@ import asyncio
 from pyrogram import Client, filters
 from AFROTOMusic import app
 import random
+from pyrogram.enums import ChatMemberStatus
 from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
