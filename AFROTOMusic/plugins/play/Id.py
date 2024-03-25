@@ -8,9 +8,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 iddof = []
-@app.on_message(
-    command(["قفل الايدي","تعطيل الايدي"], "") & ~filters.private)
-    
+@app.on_message(filters.command(["تعطيل الأيدي", "قفل الأيدي","تعطيل الايدي"], "") & ~filters.private, group=88)
 
 async def iddlock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
