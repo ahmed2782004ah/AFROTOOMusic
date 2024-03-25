@@ -11,7 +11,7 @@ iddof = []
 @app.on_message(
     command(["قفل الايدي","تعطيل الايدي"], "") & ~filters.private, group=88)
     
-)
+
 async def iddlock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in ["creator", "administrator"]:
