@@ -23,8 +23,6 @@ async def iddlock(client, message):
 
 @app.on_message(filters.command([" فتح الأيدي", " تفعيل الايدي"," تفعيل الأيدي"], "") & ~filters.private, group=88)
 
-    
-
 async def iddopen(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
@@ -77,16 +75,15 @@ async def lllock(client, message):
    else:
       return await message.reply_text("لازم تكون ادمن\n√")
 
-@app.on_message(filters.command(["فتح جمالي","تفعيل جمالي"], "") & ~filters.private, group=88)
 
-    
+@app.on_message(filters.command(["فتح جمالي","تفعيل جمالي"], "") & ~filters.private, group=88)
 
 async def idljjopen(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if not message.chat.id in iddof:
         return await message.reply_text("جمالي مفعل من قبل√")
-      iddof.remove(message.chat.id)
+      llof.remove(message.chat.id)
       return await message.reply_text("تم فتح جمالي بنجاح √")
    else:
       return await message.reply_text("هاذا الامر لأدمن فقط")
