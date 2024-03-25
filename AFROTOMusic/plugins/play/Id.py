@@ -9,7 +9,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 
 iddof = []
 @app.on_message(
-    command(["قفل الايدي","تعطيل الايدي"], "") & ~filters.private, group=88)
+    command(["قفل الايدي","تعطيل الايدي"], "") & ~filters.private)
     
 
 async def iddlock(client, message):
