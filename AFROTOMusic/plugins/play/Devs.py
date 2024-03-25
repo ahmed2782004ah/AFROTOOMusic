@@ -15,27 +15,23 @@ from random import  choice, randint
 
 #          
                 
-@app.on_message(filters.command(["عفرتو","مطور السورس","مبرمج السورس"],"")
+@app.on_message(
+    command(["مطور السورس","عفرتو","مبرمج السورس","احمد"," عمك عفرتو"])
+    & filters.group
+  
 )
-async def yas(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"https://telegra.ph/file/96857cb597b588139fdd5.jpg",
-        caption=f"""◉ 𝙽𝙰𝙼𝙴 : ❪[ْ𓆩⧛ َ 𝘼َِ𝙁َِ𝙍َِ𝙊َِ𝙊َِ𝙏َِ𝙊ِ ┇ عـ๋͜‏ـۂفــ͡ـࢪتوُ ⧚𓆪](https://t.me/IIUll_l)❫
-◉ 𝚄𝚂𝙴𝚁 : ❪ @IIUll_l ❫
-◉ 𝙸𝙳      : ❪ `5904216848` ❫
-◉ 𝙱𝙸𝙾    : ❪ for me (@UI_VM)  ❫""",
-        reply_markup=InlineKeyboardMarkup(
+async def yas(client, message):
+    usr = await client.get_chat("VVYVVJ")
+    name = usr.first_name
+    photo = await app.download_media(usr.photo.big_file_id)
+    await message.reply_photo(photo,       caption=f"– – – – – – – – – – – – – – – – – –\n↯︙𝖣𝖾𝗏 ↬ ⦗ {name} ⦘\n↯︙𝖴𝗌𝖤𝗋 ↬ ⦗ @{usr.username} ⦘\n↯︙𝖨𝖣 ↬ ⦗ {usr.id} ⦘\n↯︙𝖡𝗂𝖮 ↬ ⦗ {usr.bio} ⦘\n– – – – – – – – – – – – – – – – – –",  
+    reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "ْ𓆩⧛ َ 𝘼َِ𝙁َِ𝙍َِ𝙊َِ𝙊َِ𝙏َِ𝙊ِ ┇ عـ๋͜‏ـۂفــ͡ـࢪتوُ ⧚𓆪", url=f"https://t.me/IIUll_l"), 
-                 ],[
-                   InlineKeyboardButton(
-                        "「𝚂𝙾𝚞𝚁𝚂 𝙰𝙵𝚁𝙾𝚃𝙾𝙾」", url=f"https://t.me/UI_VM"),
+                        name, url=f"https://t.me/{usr.username}")
                 ],
-
             ]
-
         ),
-
     )
+    
