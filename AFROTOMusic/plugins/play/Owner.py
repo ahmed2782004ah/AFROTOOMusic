@@ -12,9 +12,9 @@ from AFROTOMusic import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
-@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
+@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]))
 async def gak_owne(client: Client, message: Message):
-      if len(message.command) >= 2:
+      if len(message.command) >= 5:
          return 
       else:
             chat_id = message.chat.id
@@ -27,8 +27,7 @@ async def gak_owne(client: Client, message: Message):
                  if m.photo:
                        photo = await app.download_media(m.photo.big_file_id)
                        return await message.reply_photo(photo, caption=f"🕷 ¦𝙽𝙰𝙼𝙴 :{m.first_name}\n🐉 ¦𝚄𝚂𝙴𝚁 :@{m.username}\n🐰 ¦𝙸𝙳 :`{m.id}`\n🎬 ¦𝙱𝙸𝙾 :{m.bio}\n💎 ¦𝙲𝙷𝙰𝚃: {message.chat.title}\n🗿 ¦𝙸𝙳.𝙲𝙷𝙰𝚃 :`{message.chat.id}`",reply_markup=key)
-                 else:
-                    return await message.reply("• " + member.user.mention)
+                 
                     
                     
    
