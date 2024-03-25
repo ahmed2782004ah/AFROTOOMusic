@@ -128,7 +128,7 @@ async def get_thumb(videoid):
             )
             image4.text(
                 (670, 150),
-                "AfRotOo PlAyNg",
+                "A FROTOO PLAYNG",
                 fill="white",
                 font=font2,
                 stroke_width=4,
