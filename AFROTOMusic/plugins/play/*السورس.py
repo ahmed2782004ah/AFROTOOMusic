@@ -14,7 +14,7 @@ from random import  choice, randint
 
                 
 @app.on_message(
-    command(["سورس","‹ السورس ›","عفرتو","السورس", "سورس عفرتو"])
+    command(["سورس","‹ السورس ›", "السورس", "سورس عفرتو"])
 )
 async def huhh(client: Client, message: Message):
     await message.reply_video(
