@@ -82,58 +82,83 @@ async def get_thumb(videoid):
 
             # title
         youtube = Image.open(f"thumb{videoid}.png")
-        Mostafa = Image.open(f"{photo}")
+        SEMOv = Image.open(f"{photo}")
         image1 = changeImageSize(1280, 720, youtube)
         image2 = image1.convert("RGBA")
         background = image2.filter(filter=ImageFilter.BoxBlur(5))
         enhancer = ImageEnhance.Brightness(background)
         background = enhancer.enhance(0.6)
-        Xcenter = Mostafa.width / 2
-        Ycenter = Mostafa.height / 2
+        Xcenter = SEMOv.width / 2
+        Ycenter = SEMOv.height / 2
         x1 = Xcenter - 250
         y1 = Ycenter - 250
         x2 = Xcenter + 250
         y2 = Ycenter + 250
-        logo = Mostafa.crop((x1, y1, x2, y2))
-        logo.thumbnail((520, 520), Image.LANCZOS)
+        logo = SEMOv.crop((x1, y1, x2, y2))
+        logo.thumbnail((520, 520), Image.ANTIALIAS)
         logo = ImageOps.expand(logo, border=15, fill="white")
         background.paste(logo, (50, 100))
         draw = ImageDraw.Draw(background)
-        font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 40)
-        font2 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 70)
-        arial = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-        name_font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
+        font = ImageFont.truetype("font2.ttf", 40)
+        font2 = ImageFont.truetype("font2.ttf", 70)
+        arial = ImageFont.truetype("font2.ttf", 30)
+        name_font = ImageFont.truetype("font.ttf", 30)
         para = textwrap.wrap(title, width=32)
         j = 0
         draw.text(
             (600, 150),
-            "BELAL PLAYING",
+            "𝙼𝙾𝚁𝙷𝙴𝙱 PlAYiNg",
             fill="white",
             stroke_width=2,
             stroke_fill="white",
             font=font2,
-        )   
-        
-        
-            # description
-            views = f"Views : {views}"
-            duration = f"Duration : {duration} Mins"
-            channel = f"Channel : @UI_VM"
+        )
+        for line in para:
+            if j == 1:
+                j += 1
+                draw.text(
+                    (600, 340),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+            if j == 0:
+                j += 1
+                draw.text(
+                    (600, 280),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
 
-            image4.text((690, 450), text=views, fill="white", font=font4, align="left")
-            image4.text(
-                (690, 500), text=duration, fill="white", font=font4, align="left"
-            )
-            image4.text(
-                (690, 550), text=channel, fill="white", font=font4, align="left"
-            )
-
-            image2 = ImageOps.expand(image2, border=20, fill=make_col())
-            image2 = image2.convert("RGB")
-            image2.save(f"cache/{videoid}.jpg")
-            file = f"cache/{videoid}.jpg"
-            return file
-    except Exception as e:
-        print(e)
-        return YOUTUBE_IMG_URL
-
+        draw.text(
+            (600, 450),
+            f"Views : {views[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (600, 500),
+            f"Duration : {duration[:23]} Mins",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (600, 550),
+            f"Channel : {channel}",
+            (255, 255, 255),
+            font=arial,
+        )
+        try:
+            os.remove(f"{photo}")
+            os.remove(f"thumb{videoid}.png")
+        except:
+            pass
+        background.save(f"{photo}.png")
+        return f"{photo}.png"
+    except Exception:
+        return ahmed
