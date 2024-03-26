@@ -117,21 +117,21 @@ async def get_thumb(videoid):
             image2.paste(circle, (0, 0), mask=circle)
 
             # fonts
-            font1 = ImageFont.truetype("assets/font2.ttf", 30)
-            font2 = ImageFont.truetype("assets/font2.ttf", 70)
-            font3 = ImageFont.truetype("assets/font2.ttf", 40)
-            font4 = ImageFont.truetype("assets/font2.ttf", 35)
+            font1 = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 30)
+            font2 = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 70)
+            font3 = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 40)
+            font4 = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 35)
 
             image4 = ImageDraw.Draw(image2)
             image4.text(
-                (10, 10), "Arnop Music", fill="white", font=font1, align="left"
+                (10, 10), "AFROTOO Music", fill="white", font=font1, align="left"
             )
             image4.text(
                 (670, 150),
-                "AFYONA Playing",
+                "A FROTOO Playing",
                 fill="white",
                 font=font2,
-                stroke_width=2,
+                stroke_width=4,
                 stroke_fill="white",
                 align="left",
             )
