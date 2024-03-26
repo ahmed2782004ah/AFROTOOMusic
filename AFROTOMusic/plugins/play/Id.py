@@ -94,24 +94,24 @@ async def idljjopen(client, message):
 
 @app.on_message(filters.command(["تفعيل التعديل"], "") & ~filters.private, group=88)
 
-async def taalock(client, message):
+async def taaopen(client, message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        if message.chat.id in italy:
+        if message.chat.id in taaof:
             return await message.reply_text("تم تفعيل التعديل \n√")
-        italy.append(message.chat.id)
+        taaof.append(message.chat.id)
         return await message.reply_text("تم تفعيل التعديل بنجاح \n√")
     else:
         return await message.reply_text("يجب عليك أن تكون مشرف اولا \n√")
 
 @app.on_message(filters.command(["تعطيل التعديل"], "") & ~filters.private, group=88)
 
-async def taaopen(client, message):
+async def taalock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-      if not message.chat.id in italy:
+      if not message.chat.id in taaof:
         return await message.reply_text("التعديل معطل من قبل \n√")
-      italy.remove(message.chat.id)
+      taaof.remove(message.chat.id)
       return await message.reply_text("تم فتح تعطيل بنجاح \n√")
    else:
       return await message.reply_text("لازم تكون ادمن اولا \n√")
