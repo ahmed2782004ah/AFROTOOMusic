@@ -129,10 +129,10 @@ async def get_thumb(videoid):
             image4.text(
                 (670, 150),
                 "A FROTOO PLAYNG",
-                fill="white",
+                fill="blue",
                 font=font2,
-                stroke_width=2,
-                stroke_fill="white",
+                stroke_width=1,
+                stroke_fill="blue",
                 align="left",
             )
 
