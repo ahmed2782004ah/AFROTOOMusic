@@ -4,7 +4,7 @@ import random
 import re
 import textwrap
 import aiofiles
-import aiohttp
+import re
 import textwrap
 import aiofiles
 import aiohttp
@@ -62,22 +62,8 @@ async def get_thumb(videoid, photo):
                         f"thumb{videoid}.png", mode="wb"
                     )
                     await f.write(await resp.read())
-                    await f.close()ce, ImageFilter, ImageFont, ImageOps
-from youtubesearchpython.__future__ import VideosSearch
-import numpy as np
+                    await f.close()
 
-from config import YOUTUBE_IMG_URL
-
-
-def make_col():
-    return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
-
-
-
-            
-
-            # title
         youtube = Image.open(f"thumb{videoid}.png")
         SEMOv = Image.open(f"{photo}")
         image1 = changeImageSize(1280, 720, youtube)
