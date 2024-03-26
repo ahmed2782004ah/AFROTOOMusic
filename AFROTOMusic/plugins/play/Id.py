@@ -11,7 +11,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 iddof = []
 @app.on_message(filters.command(["تعطيل الأيدي", "قفل الأيدي","تعطيل الايدي"], "") & ~filters.private, group=88)
 
-async def iddlock(client, message):
+async def iddtlock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if message.chat.id in iddof:
@@ -23,7 +23,7 @@ async def iddlock(client, message):
 
 @app.on_message(filters.command([" فتح الأيدي", " تفعيل الايدي"," تفعيل الأيدي"], "") & ~filters.private, group=88)
 
-async def iddopen(client, message):
+async def iddtopen(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if not message.chat.id in iddof:
@@ -41,7 +41,7 @@ async def iddopen(client, message):
     & filters.group
   
 )
-async def iddd(client, message):
+async def iddtd(client, message):
     if message.chat.id in iddof:
       return await message.reply_text("الادمن قام بتعطيل الايدي اطلب منه تفعيله")
     usr = await client.get_chat(message.from_user.id)
