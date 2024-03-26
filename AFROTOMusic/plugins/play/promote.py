@@ -1,6 +1,7 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, ChatPermissions
 from AFROTOMusic import app
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from pyrogram.enums import ChatMemberStatus
 
 async def PROMOTE_OWNER(c:Client,m:Message):
