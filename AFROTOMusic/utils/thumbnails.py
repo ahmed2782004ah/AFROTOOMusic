@@ -78,66 +78,41 @@ async def get_thumb(videoid):
                         await f.write(await resp.read())
                         await f.close()
 
-            youtube = Image.open(f"cache/thumb{videoid}.jpg")
-            image1 = changeImageSize(1280, 720, youtube)
-            image2 = image1.convert("RGBA")
-            background = image2.filter(filter=ImageFilter.BoxBlur(30))
-            enhancer = ImageEnhance.Brightness(background)
-            background = enhancer.enhance(0.6)
-            image2 = background
-
-            circle = Image.open("AFROTOMusic/assets/AFYONA.png")
-
-            # changing circle color
-            im = circle
-            im = im.convert("RGBA")
-            color = make_col()
-
-            data = np.array(im)
-            black, lead, blue, alpha = data.T
-
-            white_areas = (black == 255) & (blue == 255) & (lead == 255)
-            data[..., :-1][white_areas.T] = color
-
-            im2 = Image.fromarray(data)
-            circle = im2
-            # done
-
-            image3 = image1.crop((280, 0, 1000, 720))
-            lum_img = Image.new("L", [720, 720], 0)
-            draw = ImageDraw.Draw(lum_img)
-            draw.pieslice([(0, 0), (720, 720)], 0, 360, fill=255, outline="white")
-            img_arr = np.array(image3)
-            lum_img_arr = np.array(lum_img)
-            final_img_arr = np.dstack((img_arr, lum_img_arr))
-            image3 = Image.fromarray(final_img_arr)
-            image3 = image3.resize((600, 600))
-
-            image2.paste(image3, (50, 70), mask=image3)
-            image2.paste(circle, (0, 0), mask=circle)
-
-            # fonts
-            font1 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-            font2 = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 70)
-            font3 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 40)
-            font4 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 35)
-
-            image4 = ImageDraw.Draw(image2)
-            image4.text(
-                (10, 10), "AFROTOO MUSIC ", fill="white", font=font1, align="left"
-            )
-            image4.text(
-                (670, 150),
-                "A FROTOO PLAYNG",
-                fill="white",
-                font=font2,
-                stroke_width=4,
-                stroke_fill="red",
-                align="left",
-            )
+            
 
             # title
-            title1 = truncate(title)
+        youtube = Image.open(f"thumb{videoid}.png")
+        Mostafa = Image.open(f"{photo}")
+        image1 = changeImageSize(1280, 720, youtube)
+        image2 = image1.convert("RGBA")
+        background = image2.filter(filter=ImageFilter.BoxBlur(5))
+        enhancer = ImageEnhance.Brightness(background)
+        background = enhancer.enhance(0.6)
+        Xcenter = Mostafa.width / 2
+        Ycenter = Mostafa.height / 2
+        x1 = Xcenter - 250
+        y1 = Ycenter - 250
+        x2 = Xcenter + 250
+        y2 = Ycenter + 250
+        logo = Mostafa.crop((x1, y1, x2, y2))
+        logo.thumbnail((520, 520), Image.LANCZOS)
+        logo = ImageOps.expand(logo, border=15, fill="white")
+        background.paste(logo, (50, 100))
+        draw = ImageDraw.Draw(background)
+        font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 40)
+        font2 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 70)
+        arial = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
+        name_font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
+        para = textwrap.wrap(title, width=32)
+        j = 0
+        draw.text(
+            (600, 150),
+            "BELAL PLAYING",
+            fill="white",
+            stroke_width=2,
+            stroke_fill="white",
+            font=font2,
+        )    title1 = truncate(title)
             image4.text(
                 (670, 300),
                 text=title1[0],
