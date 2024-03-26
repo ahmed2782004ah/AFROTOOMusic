@@ -5,7 +5,6 @@ import re
 import textwrap
 import aiofiles
 import aiohttp
-from PIL import Image, ImageDraw, ImageEnhanimport re
 import textwrap
 import aiofiles
 import aiohttp
