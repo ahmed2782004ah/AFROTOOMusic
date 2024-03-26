@@ -4,6 +4,7 @@ import random
 import re
 import textwrap
 import aiofiles
+from googletrans import Translator
 import re
 import textwrap
 import aiofiles
