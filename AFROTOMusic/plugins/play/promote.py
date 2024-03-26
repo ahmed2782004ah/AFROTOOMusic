@@ -12,7 +12,7 @@ from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from pyrogram.enums import ChatMemberStatus
 
-@Client.on_message(filters.command(["رفع مشرف"]) & filters.group)
+@app.on_message(filters.command(["رفع مشرف"], "") & ~filters.private, group=88)
 async def promote(client: Client, message: Message):
     chat_id = message.chat.id
     user = message.from_user
