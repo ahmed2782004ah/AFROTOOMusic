@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message, ChatPermissions
-
+from AFROTOMusic import app
 
 async def PROMOTE_OWNER(c:Client,m:Message):
     ChatID = m.chat.id
