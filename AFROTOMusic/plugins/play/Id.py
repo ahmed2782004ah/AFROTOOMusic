@@ -11,7 +11,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 iddof = []
 @app.on_message(filters.command(["تعطيل الأيدي", "قفل الأيدي","تعطيل الايدي"], "") & ~filters.private, group=88)
 
-async def iddtlock(client, message):
+async def iddlock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if message.chat.id in iddof:
@@ -21,9 +21,11 @@ async def iddtlock(client, message):
    else:
       return await message.reply_text("لازم تكون ادمن \n√")
 
-@app.on_message(filters.command([" فتح الأيدي", " تفعيل الايدي"," تفعيل الأيدي"], "") & ~filters.private, group=88)
+@app.on_message(filters.command(["فتح الايدي","تفعيل الايدي"], "") & ~filters.private, group=88)
 
-async def iddtopen(client, message):
+
+
+async def iddopen(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if not message.chat.id in iddof:
@@ -41,7 +43,7 @@ async def iddtopen(client, message):
     & filters.group
   
 )
-async def iddtd(client, message):
+async def iddd(client, message):
     if message.chat.id in iddof:
       return await message.reply_text("الادمن قام بتعطيل الايدي اطلب منه تفعيله")
     usr = await client.get_chat(message.from_user.id)
@@ -92,7 +94,7 @@ async def idljjopen(client, message):
 
 @app.on_message(filters.command(["تفعيل التعديل"], "") & ~filters.private, group=88)
 
-async def iddlock(client, message):
+async def taalock(client, message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
         if message.chat.id in italy:
@@ -104,7 +106,7 @@ async def iddlock(client, message):
 
 @app.on_message(filters.command(["تعطيل التعديل"], "") & ~filters.private, group=88)
 
-async def iddopen(client, message):
+async def taaopen(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if not message.chat.id in italy:
