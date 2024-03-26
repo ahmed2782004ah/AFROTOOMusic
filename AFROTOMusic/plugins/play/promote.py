@@ -1,6 +1,14 @@
+import asyncio
+
+import os
+import time
+import requests
+from pyrogram import filters
+import random
 from pyrogram import Client, filters
 from pyrogram.types import Message, ChatPermissions
 from AFROTOMusic import app
+from strings.filters import command
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
 from pyrogram.enums import ChatMemberStatus
 
