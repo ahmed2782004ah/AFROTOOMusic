@@ -142,7 +142,7 @@ async def get_thumb(videoid):
                 (670, 300),
                 text=title1[0],
                 fill="white",
-                stroke_width=1,
+                stroke_width=3,
                 stroke_fill="white",
                 font=font3,
                 align="left",
@@ -151,7 +151,7 @@ async def get_thumb(videoid):
                 (670, 350),
                 text=title1[1],
                 fill="white",
-                stroke_width=1,
+                stroke_width=3,
                 stroke_fill="white",
                 font=font3,
                 align="left",
@@ -162,12 +162,12 @@ async def get_thumb(videoid):
             duration = f"Duration : {duration} Mins"
             channel = f"Channel : @UI_VM"
 
-            image4.text((670, 450), text=views, fill="white", font=font4, align="left")
+            image4.text((690, 450), text=views, fill="white", font=font6, align="left")
             image4.text(
-                (670, 500), text=duration, fill="white", font=font4, align="left"
+                (690, 500), text=duration, fill="white", font=font6, align="left"
             )
             image4.text(
-                (670, 550), text=channel, fill="white", font=font4, align="left"
+                (690, 550), text=channel, fill="white", font=font6, align="left"
             )
 
             image2 = ImageOps.expand(image2, border=20, fill=make_col())
