@@ -118,7 +118,7 @@ async def get_thumb(videoid):
 
             # fonts
             font1 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-            font2 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 70)
+            font2 = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 70)
             font3 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 40)
             font4 = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 35)
 
@@ -131,7 +131,7 @@ async def get_thumb(videoid):
                 "A FROTOO PLAYNG",
                 fill="blue",
                 font=font2,
-                stroke_width=1,
+                stroke_width=4,
                 stroke_fill="blue",
                 align="left",
             )
