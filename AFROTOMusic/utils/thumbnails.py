@@ -131,7 +131,7 @@ async def get_thumb(videoid):
                 "A FROTOO PLAYNG",
                 fill="white",
                 font=font2,
-                stroke_width=4,
+                stroke_width=3,
                 stroke_fill="white",
                 align="left",
             )
