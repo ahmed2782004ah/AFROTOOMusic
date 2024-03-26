@@ -65,7 +65,7 @@ iddof = []
 
     
 
-async def iddlock(client, message):
+async def idljjlock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
       if message.chat.id in iddof:
@@ -121,7 +121,7 @@ async def iddopen(client, message):
     & filters.group
     
 )
-async def idjjdd(client, message):
+async def idljj(client, message):
     if message.chat.id in iddof:
       return await message.reply_text("امر جمالي معطل من الادمن اطلب منهم فتحه")
     usr = await client.get_chat(message.from_user.id)
