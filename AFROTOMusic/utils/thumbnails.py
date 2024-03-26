@@ -132,7 +132,7 @@ async def get_thumb(videoid):
                 fill="white",
                 font=font2,
                 stroke_width=4,
-                stroke_fill="blue",
+                stroke_fill="red",
                 align="left",
             )
 
