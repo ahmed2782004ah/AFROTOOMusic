@@ -97,7 +97,7 @@ async def idljjopen(client, message):
 async def taaopen(client, message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        if message.chat.id in iddof:
+        if message.chat.id in hhhof:
             return await message.reply_text("تم تفعيل التعديل \n√")
         taaof.append(message.chat.id)
         return await message.reply_text("تم تفعيل التعديل بنجاح \n√")
@@ -109,7 +109,7 @@ async def taaopen(client, message):
 async def taalock(client, message):
    get = await app.get_chat_member(message.chat.id, message.from_user.id)
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-      if not message.chat.id in iddof:
+      if not message.chat.id in hhhof:
         return await message.reply_text("التعديل معطل من قبل \n√")
       taaof.remove(message.chat.id)
       return await message.reply_text("تم فتح تعطيل بنجاح \n√")
