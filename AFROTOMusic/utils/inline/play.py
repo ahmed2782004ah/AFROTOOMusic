@@ -4,6 +4,8 @@ import requests
 import pyrogram
 from pyrogram import Client, filters, emoji
 import math
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup
+from pyrogram.errors import MessageNotModified
 
 import config
 from AFROTOMusic import app 
