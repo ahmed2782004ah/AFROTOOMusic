@@ -14,8 +14,6 @@ from config import OWNER_ID, LOGGER_ID
 from pyrogram.types import InlineKeyboardButton
 
 from AFROTOMusic.utils.formatters import time_to_seconds
-
-async def zdatsr(client: Client, message: Message):
     usr = await client.get_users(OWNER_ID)
     name = usr.first_name
     usrnam = usr.username
