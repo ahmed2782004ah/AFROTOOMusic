@@ -17,6 +17,11 @@
         "value": "",
         "required": true
       },
+      "BOT_ID": {
+        "description": "ا ايدي البوت",
+        "value": "",
+        "required": true
+      },
       "OWNER_ID": {
         "description": "⦗ ايـــدي المطـــور ⦘ ↫ مطـــور بـــوت الميـــوزك",
         "value": "",
