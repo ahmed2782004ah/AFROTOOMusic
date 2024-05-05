@@ -24,10 +24,10 @@ async def play_logs(message, streamtype):
 
 <b>- الطلب :</b> {message.text.split(None, 1)[1]}
 <b>- نوع التشغيل :</b> {streamtype}"""
-        if message.bot.id != BOT_ID:
+        if message.bot_chat.id != BOT_ID:
             try:
                 await app.send_message(
-                    bot_id=BOT_ID,
+                    bot_chat_id=BOT_ID,
                     text=logger_text,
                     parse_mode=ParseMode.HTML,
                     disable_web_page_preview=True,
