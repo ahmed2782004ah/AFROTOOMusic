@@ -2,7 +2,7 @@ from pyrogram import Client
 
 import config
 
-from ..logging import LOGGER
+from config import OWNER_ID
 
 assistants = []
 assistantids = []
