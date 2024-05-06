@@ -1,14 +1,12 @@
-from pyrogram import Client, errors
-from pyrogram.enums import ChatMemberStatus, ParseMode
+from pyrogram.enums import ParseMode
 
-import config
-
+from AFROTOMusic import app
+from AFROTOMusic.utils.database import is_on_off
 from config import OWNER_ID
-
 
 class Zelzaly(Client):
     def __init__(self):
-        LOGGER("ميــوزك عفرتو").info(f"جارِ بدء تشغيل البوت . . .")
+        OWNER_ID("ميــوزك عفرتو").info(f"جارِ بدء تشغيل البوت . . .")
         super().__init__(
             name="AFROTOMusic",
             api_id=config.API_ID,
