@@ -81,3 +81,13 @@ async def stop(client, message):
     array.remove(message.chat.id)
     await message.reply("♪ تم ايقاف المنشن عزيزي  💎 .")
     return
+
+@Client.on_message(filters.new_chat_members)
+async def wel__come(client: Client, message):
+	chatid= message.chat.id
+	await client.send_message(text=f"• لا تسئ اللفظ وان ضاق عليك الرد\nٌٍ𝘠ُُ𝘖ٍٰ𝘜ًٍ𝘙 ٍَ𝘕ٍَّ𝘈ٍّٰ𝘔ٍٓ𝘌 » {message.from_user.mention}\nٌٕ𝘎ًٍ𝘙ُُ𝘖ٍٰ𝘜ٍَ𝘗 » {message.chat.title}",chat_id=chatid)
+	
+@Client.on_message(filters.left_chat_member)
+async def good_bye(client: Client, message):
+	chatid= message.chat.id
+	await client.send_message(text=f"كنت راجل محترم يا  {message.from_user.mention} ",chat_id=chatid)
