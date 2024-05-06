@@ -26,5 +26,5 @@ async def on_new_chat_members(client: Client, message: Message):
             chatusername = f"@{message.chat.username}"
         else:
             chatusername = "ᴩʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
-        lemda_text = f"مرحبا عزيزي المطور لقد تم اضافه البوت لمجموعه جديده ..\n\n┏━━━━━━━━━━━━━━━━━┓\n┣★ الاسم › : {matlabi_jhanto}\n┣★ايدي الدردشة › : {chat_id}\n┣★ يوزر الدردشه › : {chatusername}\n┣★مجموع الدردشات › : {bot_chats}\n┣★اضيف بواسطة › :\n┗━━━ {added_by}"
+        lemda_text = f"مرحبا عزيزي المطور لقد تم اضافه البوت لمجموعه جديده ..\n\n┏━━━━━━━━━━━━━━━━━┓\n┣★ الاسم › : {matlabi_jhanto}\n┣★ايدي الدردشة › : {chat_id}\n┣★ يوزر الدردشه › : {chatusername}\n┣★مجموع الدردشات › : {served_chats}\n┣★اضيف بواسطة › :\n┗━━━ {added_by}"
         await lul_message(OWNER_ID, lemda_text)
