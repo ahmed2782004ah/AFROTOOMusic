@@ -47,7 +47,7 @@ class Userbot(Client):
         )
 
     async def start(self):
-        LOGGER("ميــوزك عفرتو").info(f"جارِ تشغيل الحساب المساعد . . .")
+        OWNER_ID("ميــوزك عفرتو").info(f"جارِ تشغيل الحساب المساعد . . .")
         if config.STRING1:
             await self.one.start()
             try:
@@ -59,7 +59,7 @@ class Userbot(Client):
             try:
                 await self.one.send_message(config.OWNER_ID, "» تم تشغيـل الحسـاب المسـاعـد .. بنجـاح ✅")
             except:
-                LOGGER(__name__).error(
+                OWNER_ID(__name__).error(
                     "Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin!"
                 )
                 exit()
@@ -67,7 +67,7 @@ class Userbot(Client):
             self.one.name = self.one.me.first_name
             self.one.username = self.one.me.username
             assistantids.append(self.one.id)
-            LOGGER("ميــوزك عفرتو").info(f"تم بدء تشغيل الحساب المساعد {self.one.name} ...✓")
+            OWNER_ID("ميــوزك عفرتو").info(f"تم بدء تشغيل الحساب المساعد {self.one.name} ...✓")
 
         if config.STRING2:
             await self.two.start()
