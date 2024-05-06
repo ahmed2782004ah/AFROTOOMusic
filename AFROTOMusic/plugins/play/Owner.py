@@ -12,7 +12,7 @@ from AFROTOMusic import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
-@app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]))
+@app.on_message(command(["المنشئ", "المالك"]) & filters.group )
 async def gak_owne(client: Client, message: Message):
       if len(message.command) >= 5:
          return 
