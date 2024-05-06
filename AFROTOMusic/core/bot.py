@@ -28,9 +28,9 @@ class Zelzaly(Client):
             await self.send_message(
                 chat_id=config.OWNER_ID,
                 text=f"<u><b>» تم تشغيل الميـوزك لـ البوت {self.mention} :</b><u>\n\n- ɪᴅ : <code>{self.id}</code>\n- ɴᴀᴍᴇ : {self.name}\n- ᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
-            )
+                        )
             exit()
-            OWNER_ID("ميــوزك عفرتو").info(f" تم بدء تشغيل البوت {self.name} ...✓")
+        LOGGER("ميــوزك عفرتو").info(f" تم بدء تشغيل البوت {self.name} ...✓")
 
     async def stop(self):
         await super().stop()
