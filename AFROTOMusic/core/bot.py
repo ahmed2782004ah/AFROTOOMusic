@@ -29,22 +29,6 @@ class Zelzaly(Client):
                 chat_id=config.OWNER_ID,
                 text=f"<u><b>» تم تشغيل الميـوزك لـ البوت {self.mention} :</b><u>\n\n- ɪᴅ : <code>{self.id}</code>\n- ɴᴀᴍᴇ : {self.name}\n- ᴜsᴇʀɴᴀᴍᴇ : @{self.username}",
             )
-        except (errors.ChannelInvalid, errors.PeerIdInvalid):
-            OWNER_ID(__name__).error(
-                "» قم باضافة البـوت مشـرفـاً بكافة الصلاحيات في مجموعـة السجـل"
-            )
-            exit()
-        except Exception as ex:
-            OWNER_ID(__name__).error(
-                f"Bot has failed to access the log group/channel.\n  Reason : {type(ex).__name__}."
-            )
-            exit()
-
-        a = await self.get_chat_member(config.OWNER_ID, self.id)
-        if a.status != ChatMemberStatus.ADMINISTRATOR:
-            OWNER_ID(__name__).error(
-                "» قم برفـع البـوت مشـرفـاً بكافة الصلاحيات في مجموعـة السجـل"
-            )
             exit()
         OWNER_ID("ميــوزك عفرتو").info(f" تم بدء تشغيل البوت {self.name} ...✓")
 
