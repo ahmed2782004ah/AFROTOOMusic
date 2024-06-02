@@ -7,7 +7,7 @@ import random
 from datetime import datetime
 import requests
 import pytz
-from AarohiX.core.call import Zelzaly
+from AFROTOMusic.core.call import Zelzaly
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from AFROTOMusic.core.call import Zelzaly
