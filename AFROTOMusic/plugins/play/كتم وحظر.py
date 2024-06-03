@@ -32,7 +32,7 @@ from AFROTOMusic.misc import SUDOERS
 from pyrogram import filters, Client
 from telegraph import upload_file
 from dotenv import load_dotenv
-from VeGaMusic.utils.database import (set_cmode,get_assistant) 
+from AFROTOMusic.utils.database import (set_cmode,get_assistant) 
 from AFROTOMusic.utils.decorators.admins import AdminActual
 from AFROTOMusic import app
 unmute_permissions = ChatPermissions(
