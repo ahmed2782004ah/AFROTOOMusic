@@ -80,7 +80,7 @@ async def muttopen(client, message):
       return await message.reply_text("لازم تكون ادمن يشخه علشان اسمع كلامك")
         
         
-@app.on_message(command(["الغاء تقيد","الغاء لتقيد"]), group=94) 
+@app.on_message(command(["الغاء تقيد","الغاء التقيد"]), group=94) 
 async def mute(client: Client, message: Message):
    global restricted_users
    get = await client.get_chat_member(message.chat.id, message.from_user.id)
@@ -92,7 +92,7 @@ async def mute(client: Client, message: Message):
                        user_id=message.reply_to_message.from_user.id,
                        permissions=unmute_permissions,
                    )
-    await app.send_message(message.chat.id, f"✅ ¦ تـم الغاء الكتـم بـنجـاح\n {message.reply_to_message.from_user.mention} ")
+    await app.send_message(message.chat.id, f"✅ ¦ تـم الغاء التقييد بـنجـاح\n {message.reply_to_message.from_user.mention} ")
 
 
 restricted_users = []
@@ -114,7 +114,7 @@ async def mute(client: Client, message: Message):
             )
             restricted_user = message.reply_to_message.from_user
             restricted_users.append(restricted_user)
-            await app.send_message(message.chat.id, f"✅ ¦ تـم الكتـم بـنجـاح\n {restricted_user.mention} ")
+            await app.send_message(message.chat.id, f"✅ ¦ تـم التقييد بـنجـاح\n {restricted_user.mention} ")
 
 @app.on_message(command(["مسح المقيدين"]), group=40)
 async def unmute(client: Client, message: Message):
@@ -216,8 +216,7 @@ async def mute(client: Client, message: Message):
    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6438745713:
     await app.unban_chat_member(message.chat.id, message.reply_to_message.from_user.id) 
     banned_users.remove(user)
-    await app.send_message(message.chat.id, f"✅ ¦ تـم الغاء الحظر بـنجـاح\n {message.reply_to_message.from_user.mention} ")
-
+    await message.reply_text(f"تم الغاء حظر العضو\n│ \n : {message.reply_to_message.from_user.mention}\n\n بنجاح ")
 
 @app.on_message(command(["المحظورين"]))
 async def get_restricted_users(client: Client, message: Message):
@@ -248,7 +247,7 @@ async def mute_user(client, message):
                 muted_users.append(user_id)
                 await message.reply_text(f"العضو {user_id} تم كتمه بنجاح.")
             else:
-                await message.reply_text(f"المستخدم محظور بالفعل")
+                await message.reply_text(f"المستخدم مكتوم بالفعل")
         else:
             await message.reply_text("قم بعمل ريبلاي")
 
