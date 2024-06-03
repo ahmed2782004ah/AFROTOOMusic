@@ -100,7 +100,7 @@ restricted_users = []
 async def mute(client: Client, message: Message):
     global restricted_users
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
-    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6438745713:
+    if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6988786007:
         if message.chat.id in muttof:
             return
         if message.reply_to_message.from_user.id == 6988786007:
