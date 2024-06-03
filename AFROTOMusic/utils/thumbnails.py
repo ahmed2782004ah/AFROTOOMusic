@@ -66,95 +66,118 @@ def crop_center_circle(img, output_size, border, crop_scale=1.5):
 
 
 
-async def get_thumb(videoid):
-    if os.path.isfile(f"cache/{videoid}_v4.png"):
-        return f"cache/{videoid}_v4.png"
+async def get_thumb(videoid, photo):
+    if os.path.isfile(f"{photo}.png"):
+        return f"{photo}.png"
 
     url = f"https://www.youtube.com/watch?v={videoid}"
-    results = VideosSearch(url, limit=1)
-    for result in (await results.next())["result"]:
-        try:
-            title = result["title"]
-            title = re.sub("\W+", " ", title)
-            title = title.title()
-        except:
-            title = "Unsupported Title"
-        try:
-            duration = result["duration"]
-        except:
-            duration = "Unknown Mins"
-        thumbnail = result["thumbnails"][0]["url"].split("?")[0]
-        try:
-            views = result["viewCount"]["short"]
-        except:
-            views = "Unknown Views"
-        try:
-            channel = result["channel"]["name"]
-        except:
-            channel = "Unknown Channel"
-
-    async with aiohttp.ClientSession() as session:
-        async with session.get(thumbnail) as resp:
-            if resp.status == 200:
-                f = await aiofiles.open(f"cache/thumb{videoid}.png", mode="wb")
-                await f.write(await resp.read())
-                await f.close()
-
-    youtube = Image.open(f"cache/thumb{videoid}.png")
-    image1 = changeImageSize(1280, 720, youtube)
-    image2 = image1.convert("RGBA")
-    background = image2.filter(filter=ImageFilter.BoxBlur(5))
-    enhancer = ImageEnhance.Brightness(background)
-    background = enhancer.enhance(0.6)
-    draw = ImageDraw.Draw(background)
-    arial = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 30)
-    font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-    title_font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-            
-
-
-    circle_thumbnail = crop_center_circle(youtube, 400, 20)
-    circle_thumbnail = circle_thumbnail.resize((400, 400))
-    circle_position = (120, 160)
-    background.paste(circle_thumbnail, circle_position, circle_thumbnail)
-
-    text_x_position = 565
-
-    title1 = truncate(title)
-    draw.text((text_x_position, 180), title1[0], fill=(255, 255, 255), font=title_font)
-    draw.text((text_x_position, 230), title1[1], fill=(255, 255, 255), font=title_font)
-    draw.text((text_x_position, 300), f"{channel}  |  {views[:23]}", (255, 255, 255), font=arial)
-    draw.text((500, 30), f"A F R O T O M u S i C", fill="white", stroke_width=1, stroke_fill="black", font=font)
-    
-    line_length = 580  
-
-    
-    red_length = int(line_length * 0.6)
-    white_length = line_length - red_length
-
-    
-    start_point_red = (text_x_position, 380)
-    end_point_red = (text_x_position + red_length, 380)
-    draw.line([start_point_red, end_point_red], fill="red", width=9)
-
-    
-    start_point_white = (text_x_position + red_length, 380)
-    end_point_white = (text_x_position + line_length, 380)
-    draw.line([start_point_white, end_point_white], fill="white", width=8)
-
-    
-    circle_radius = 10 
-    circle_position = (end_point_red[0], end_point_red[1])
-    draw.ellipse([circle_position[0] - circle_radius, circle_position[1] - circle_radius,
-                  circle_position[0] + circle_radius, circle_position[1] + circle_radius], fill="red")
-    draw.text((text_x_position, 400), "00:00", (255, 255, 255), font=arial)
-    draw.text((1080, 400), duration, (255, 255, 255), font=arial)
-
-    play_icons = Image.open("AFROTOMusic/assets/play_icons.png")
-    play_icons = play_icons.resize((580, 62))
-    background.paste(play_icons, (text_x_position, 450), play_icons)
-
     try:
+        results = VideosSearch(url, limit=1)
+        for result in (await results.next())["result"]:
+            try:
+                title = result["title"]
+                title = re.sub("\W+", " ", title)
+                title = title.title()
+                test = translator.translate(title, dest="en")
+                title = test.text
+            except:
+                title = "Unsupported Title"
+            try:
+                duration = result["duration"]
+            except:
+                duration = "Unknown Mins"
+            thumbnail = result["thumbnails"][0]["url"].split("?")[0]
+            try:
+                views = result["viewCount"]["short"]
+            except:
+                views = "Unknown Views"
+            try:
+                channel = result["channel"]["name"]
+            except:
+                channel = "Unknown Channel"
+
+        async with aiohttp.ClientSession() as session:
+            async with session.get(thumbnail) as resp:
+                if resp.status == 200:
+                    f = await aiofiles.open(
+                        f"thumb{videoid}.png", mode="wb"
+                    )
+                    await f.write(await resp.read())
+                    await f.close()
+
+        youtube = Image.open(f"thumb{videoid}.png")
+        SEMOv = Image.open(f"{photo}")
+        image1 = changeImageSize(1280, 720, youtube)
+        image2 = image1.convert("RGBA")
+        background = image2.filter(filter=ImageFilter.BoxBlur(5))
+        enhancer = ImageEnhance.Brightness(background)
+        background = enhancer.enhance(0.6)
+        Xcenter = SEMOv.width / 2
+        Ycenter = SEMOv.height / 2
+        x1 = Xcenter - 250
+        y1 = Ycenter - 250
+        x2 = Xcenter + 250
+        y2 = Ycenter + 250
+        logo = SEMOv.crop((x1, y1, x2, y2))
+        logo.thumbnail((520, 520), Image.ANTIALIAS)
+        logo = ImageOps.expand(logo, border=15, fill="white")
+        background.paste(logo, (50, 100))
+        draw = ImageDraw.Draw(background)
+        font = ImageFont.truetype("font2.ttf", 40)
+        font2 = ImageFont.truetype("font2.ttf", 70)
+        arial = ImageFont.truetype("font2.ttf", 30)
+        name_font = ImageFont.truetype("font.ttf", 30)
+        para = textwrap.wrap(title, width=32)
+        j = 0
+        draw.text(
+            (600, 150),
+            "NoNa PlAYiNg",
+            fill="white",
+            stroke_width=2,
+            stroke_fill="white",
+            font=font2,
+        )
+        for line in para:
+            if j == 1:
+                j += 1
+                draw.text(
+                    (600, 340),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+            if j == 0:
+                j += 1
+                draw.text(
+                    (600, 280),
+                    f"{line}",
+                    fill="white",
+                    stroke_width=1,
+                    stroke_fill="white",
+                    font=font,
+                )
+
+        draw.text(
+            (600, 450),
+            f"Views : {views[:23]}",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (600, 500),
+            f"Duration : {duration[:23]} Mins",
+            (255, 255, 255),
+            font=arial,
+        )
+        draw.text(
+            (600, 550),
+            f"Channel : {channel}",
+            (255, 255, 255),
+            font=arial,
+        )
+        try:
         os.remove(f"cache/thumb{videoid}.png")
     except:
         pass
