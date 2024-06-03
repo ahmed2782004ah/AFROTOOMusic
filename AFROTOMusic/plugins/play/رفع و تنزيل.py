@@ -120,7 +120,7 @@ mutorn = {}
 def is_mutor(user_id):
     return user_id in mutorn and mutorn[user_id] > 0
 
-@app.on_message(command(["رفع ادمن"]), group=3197)
+@app.on_message(command(["رفع ادمن"]))
 async def mutornn(client, message):
     global mutorn
     user_id = message.reply_to_message.from_user.id
@@ -131,7 +131,7 @@ async def mutornn(client, message):
     chat_id = message.chat.id
     await app.send_message(chat_id, text="تم الرفع ادمن بنجاح")
 
-@app.on_message(command(["تنزيل ادمن"]), group=396)
+@app.on_message(command(["تنزيل ادمن"]))
 async def remove_mutor(client, message):
     global mutorn
     user_id = message.reply_to_message.from_user.id
