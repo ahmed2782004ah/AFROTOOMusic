@@ -120,7 +120,7 @@ mutorn = {}
 def is_mutor(user_id):
     return user_id in mutorn and mutorn[user_id] > 0
 
-@app.on_message(command(["رفع ادمن"]))
+@app.on_message(command("رفع ادمن"))
 async def mutornn(client, message):
     global mutorn
     user_id = message.reply_to_message.from_user.id
