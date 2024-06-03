@@ -115,35 +115,35 @@ async def get_thumb(videoid):
     image4.text(
        (10, 10), "AFROTOO MUSIC ", fill="white", font=font1, align="left"
     )
-            image4.text(
-                (670, 150),
-                "AFROTOO MUSIC",
-                fill="white",
-                font=font2,
-                stroke_width=4,
-                stroke_fill="white",
-                align="left",
+    image4.text(
+        (670, 150),
+        "AFROTOO MUSIC",
+         fill="white",
+         font=font2,
+         stroke_width=4,
+         stroke_fill="white",
+         align="left",
     )
-
-            # title
-            title1 = truncate(title)
-            image4.text(
-                (670, 300),
-                text=title1[0],
-                fill="white",
-                stroke_width=1,
-                stroke_fill="white",
-                font=font3,
-                align="left",
+    # title
+    title1 = truncate(title)
+    image4.text
+    (670, 300),
+    text=title1[0],
+    fill="white",
+    stroke_width=1,
+    stroke_fill="white",
+    font=font3,
+    align="left",
+  
     )
-            image4.text(
-                (670, 350),
-                text=title1[1],
-                fill="white",
-                stroke_width=1,
-                stroke_fill="white",
-                font=font3,
-                align="left",
+    image4.text(
+        (670, 350),
+        text=title1[1],
+        fill="white",
+        stroke_width=1,
+        stroke_fill="white",
+        font=font3,
+        align="left",
     )
     circle_thumbnail = crop_center_circle(youtube, 400, 20)
     circle_thumbnail = circle_thumbnail.resize((400, 400))
