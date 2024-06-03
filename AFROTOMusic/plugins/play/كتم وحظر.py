@@ -2,7 +2,7 @@ import asyncio
 import requests
 from AFROTOMusic import app
 from AFROTOMusic.plugins.play.filters import command
-from AFROTOMusic.core.call import Zoro
+from AFROTOMusic.core.call import Zelzaly
 from AFROTOMusic.utils.database import set_loop
 from AFROTOMusic.utils.decorators import AdminRightsCheck
 from datetime import datetime
