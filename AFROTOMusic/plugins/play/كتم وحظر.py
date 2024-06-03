@@ -1,14 +1,14 @@
 import asyncio
 import requests
-from VeGaMusic import app
-from VeGaMusic.plugins.play.filters import command
-from VeGaMusic.core.call import Zoro
-from VeGaMusic.utils.database import set_loop
-from VeGaMusic.utils.decorators import AdminRightsCheck
+from AFROTOMusic import app
+from AFROTOMusic.plugins.play.filters import command
+from AFROTOMusic.core.call import Zoro
+from AFROTOMusic.utils.database import set_loop
+from AFROTOMusic.utils.decorators import AdminRightsCheck
 from datetime import datetime
 from config import BANNED_USERS, PING_IMG_URL, lyrical, START_IMG_URL, MONGO_DB_URI, OWNER_ID
-from VeGaMusic.utils import bot_sys_stats
-from VeGaMusic.utils.decorators.language import language
+from AFROTOMusic.utils import bot_sys_stats
+from AFROTOMusic.utils.decorators.language import language
 import random
 import time
 from pyrogram.enums import ChatMembersFilter
@@ -21,20 +21,20 @@ import string
 import lyricsgenius as lg
 from pyrogram.types import (InlineKeyboardButton, ChatPermissions, InlineKeyboardMarkup, Message, User)
 from pyrogram import Client, filters
-from VeGaMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
+from AFROTOMusic import (Apple, Resso, SoundCloud, Spotify, Telegram, YouTube, app)
 from typing import Union
 import sys
 import os
 from pyrogram.types import ChatPermissions, ChatPrivileges
 from pyrogram.errors import PeerIdInvalid
 from os import getenv
-from VeGaMusic.misc import SUDOERS
+from AFROTOMusic.misc import SUDOERS
 from pyrogram import filters, Client
 from telegraph import upload_file
 from dotenv import load_dotenv
 from VeGaMusic.utils.database import (set_cmode,get_assistant) 
-from VeGaMusic.utils.decorators.admins import AdminActual
-from VeGaMusic import app
+from AFROTOMusic.utils.decorators.admins import AdminActual
+from AFROTOMusic import app
 unmute_permissions = ChatPermissions(
     can_send_messages=True,
     can_send_media_messages=True,
@@ -103,7 +103,7 @@ async def mute(client: Client, message: Message):
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] or message.from_user.id == 6438745713:
         if message.chat.id in muttof:
             return
-        if message.reply_to_message.from_user.id == 6438745713:
+        if message.reply_to_message.from_user.id == 6988786007:
             await app.send_message(message.chat.id, "عذرا لا يمكنك تقيد المطور")
         else:
             mute_permission = ChatPermissions(can_send_messages=False)
@@ -175,7 +175,7 @@ async def mute(client: Client, message: Message):
         return
     if message.chat.id in gaaof:
         return
-    if message.reply_to_message.from_user.id == 6438745713:
+    if message.reply_to_message.from_user.id == 6988786007:
         await app.send_message(message.chat.id, "عذرا لا يمكنك طرد المطور")
     else:
         banned_user = message.reply_to_message.from_user
@@ -239,7 +239,7 @@ async def mute_user(client, message):
     chat_member = await client.get_chat_member(message.chat.id, message.from_user.id)
     if chat_member.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR] and message.from_user.id != 6438745713:
         return
-    if message.reply_to_message.from_user.id == 6438745713:
+    if message.reply_to_message.from_user.id == 6988786007:
         await app.send_message(message.chat.id, "عذرا لا يمكنك طرد المطور")
     else:	
         if message.reply_to_message:
