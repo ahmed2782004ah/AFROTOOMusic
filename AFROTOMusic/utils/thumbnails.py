@@ -109,7 +109,7 @@ async def get_thumb(videoid):
     draw = ImageDraw.Draw(background)
     arial = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 30)
     font = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 30)
-    title_font = ImageFont.truetype("AarohiX/assets/font2.ttf", 45)
+    title_font = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 45)
 
 
     circle_thumbnail = crop_center_circle(youtube, 400, 20)
@@ -149,7 +149,7 @@ async def get_thumb(videoid):
     draw.text((text_x_position, 400), "00:00", (255, 255, 255), font=arial)
     draw.text((1080, 400), duration, (255, 255, 255), font=arial)
 
-    play_icons = Image.open("AarohiX/assets/play_icons.png")
+    play_icons = Image.open("AFROTOMusic/assets/play_icons.png")
     play_icons = play_icons.resize((580, 62))
     background.paste(play_icons, (text_x_position, 450), play_icons)
 
