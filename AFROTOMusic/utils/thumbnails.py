@@ -46,7 +46,7 @@ def crop_center_circle(img, output_size, border, crop_scale=1.5):
     img = img.resize((output_size - 2*border, output_size - 2*border))
     
     
-    final_img = Image.new("RGBA", (output_size, output_size), "red")
+    final_img = Image.new("RGBA", (output_size, output_size), "white")
     
     
     mask_main = Image.new("L", (output_size - 2*border, output_size - 2*border), 0)
@@ -103,14 +103,13 @@ async def get_thumb(videoid):
     youtube = Image.open(f"cache/thumb{videoid}.png")
     image1 = changeImageSize(1280, 720, youtube)
     image2 = image1.convert("RGBA")
-    background = image2.filter(filter=ImageFilter.BoxBlur(5))
+    background = image2.filter(filter=ImageFilter.BoxBlur(20))
     enhancer = ImageEnhance.Brightness(background)
     background = enhancer.enhance(0.6)
     draw = ImageDraw.Draw(background)
-    arial = ImageFont.truetype("AFROTOMusic/assets/font2.ttf", 30)
+    arial = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
     font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-    title_font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 30)
-            
+    title_font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 45)
 
 
     circle_thumbnail = crop_center_circle(youtube, 400, 20)
@@ -123,8 +122,8 @@ async def get_thumb(videoid):
     title1 = truncate(title)
     draw.text((text_x_position, 180), title1[0], fill=(255, 255, 255), font=title_font)
     draw.text((text_x_position, 230), title1[1], fill=(255, 255, 255), font=title_font)
-    draw.text((text_x_position, 300), f"{channel}  |  {views[:23]}", (255, 255, 255), font=arial)
-    draw.text((500, 30), f"A F R O T O M u S i C", fill="white", stroke_width=1, stroke_fill="black", font=font)
+    draw.text((text_x_position, 320), f"{channel}  |  {views[:23]}", (255, 255, 255), font=arial)
+    draw.text((500, 30), f"A F R O T O M u S i C", fill="white", stroke_width=4, stroke_fill="black", font=font)
     
     line_length = 580  
 
@@ -160,4 +159,3 @@ async def get_thumb(videoid):
         pass
     background.save(f"cache/{videoid}_v4.png")
     return f"cache/{videoid}_v4.png"
-            
