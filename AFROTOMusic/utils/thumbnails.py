@@ -123,7 +123,7 @@ async def get_thumb(videoid):
     draw.text((text_x_position, 180), title1[0], fill=(255, 255, 255), font=title_font)
     draw.text((text_x_position, 230), title1[1], fill=(255, 255, 255), font=title_font)
     draw.text((text_x_position, 320), f"{channel}  |  {views[:23]}", (255, 255, 255), font=arial)
-    draw.text((800, 60), f"A F R O T O M u S i C", fill="white", stroke_width=4, stroke_fill="red", font=font)
+    draw.text((500, 30), f"A  F  R  O  T  O   M  u  S  i  C", fill="white", stroke_width=8, stroke_fill="black", font=font)
     
     line_length = 580  
 
