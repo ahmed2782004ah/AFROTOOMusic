@@ -1,7 +1,7 @@
 import math
 from pyrogram.types import InlineKeyboardButton
 
-from AFROTOMusic.utils.formatters import time_to_seconds
+from AarohiX.utils.formatters import time_to_seconds
 
 
 def track_markup(_, videoid, user_id, channel, fplay):
@@ -24,9 +24,9 @@ def track_markup(_, videoid, user_id, channel, fplay):
         ],
     ]
     return buttons
-  
-    
-    def stream_markup_timer(_, chat_id, played, dur):
+
+
+def stream_markup_timer(_, chat_id, played, dur):
     played_sec = time_to_seconds(played)
     duration_sec = time_to_seconds(dur)
     percentage = (played_sec / duration_sec) * 100
@@ -99,7 +99,6 @@ def track_markup(_, videoid, user_id, channel, fplay):
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
     return buttons
-
 
 def playlist_markup(_, videoid, user_id, ptype, channel, fplay):
     buttons = [
