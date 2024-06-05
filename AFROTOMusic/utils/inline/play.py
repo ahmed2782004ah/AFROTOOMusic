@@ -66,8 +66,12 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="▷▷", callback_data=f"ADMIN Skip|{chat_id}"),
         ],
         [
+            InlineKeyboardButton(text="GROUP", url=f"https://t.me/YR_HX"),
+            InlineKeyboardButton(text="CHANNEL", url=f"https://t.me/UI_VM"),
+        ],
+        [
         InlineKeyboardButton(
-                 "AFROTOO", url=SUPPORT_CHANNEL
+                 "ᯓ 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌ㇱ", url=SUPPORT_CHANNEL
             ),
         ],
         [
@@ -85,8 +89,12 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▷▷", callback_data=f"ADMIN Skip|{chat_id}"),
         ],
         [
+            InlineKeyboardButton(text="GROUP", url=f"https://t.me/YR_HX"),
+            InlineKeyboardButton(text="CHANNEL", url=f"https://t.me/UI_VM"),
+        ],
+        [
         InlineKeyboardButton(
-                 "AFROTOO", url=SUPPORT_CHANNEL
+                 "ᯓ 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌ㇱ", url=SUPPORT_CHANNEL
             ),
         ],
         [
