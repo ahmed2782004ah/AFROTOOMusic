@@ -69,6 +69,9 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="GROUP", url=f"https://t.me/YR_HX"),
             InlineKeyboardButton(text="CHANNEL", url=f"https://t.me/UI_VM"),
         ],
+        [
+            InlineKeyboardButton(text="ᯓ 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌ㇱ", url=f"https://t.me/VVYVVJ"),
+        ], 
         
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
@@ -88,6 +91,10 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="GROUP", url=f"https://t.me/YR_HX"),
             InlineKeyboardButton(text="CHANNEL", url=f"https://t.me/UI_VM"),
         ],
+        [
+            InlineKeyboardButton(text="ᯓ 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌ㇱ", url=f"https://t.me/VVYVVJ"),
+        ],
+    
             
         [InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close")],
     ]
