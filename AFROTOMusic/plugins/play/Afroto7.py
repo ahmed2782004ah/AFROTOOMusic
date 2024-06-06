@@ -1,6 +1,6 @@
 import os
-from AarohiX import app
-from AarohiX.utils.decorators.font_string import Fonts
+from AFROTOMusic import app
+from AFROTOMusic.utils.decorators.font_string import Fonts
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
