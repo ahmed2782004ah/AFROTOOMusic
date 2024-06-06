@@ -72,7 +72,7 @@ async def unpin(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("ازاله صورة الجروب") & admin_filter)
+@app.on_message(filters.command(["ازاله صورة الجروب"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def deletechatphoto(_, message):
       
       chat_id = message.chat.id
