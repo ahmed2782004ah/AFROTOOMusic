@@ -8,7 +8,7 @@ from AFROTOMusic.utils.admin_check import admin_filter
 @app.on_message(filters.command(["حذف", "مسح"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def purge(app: app, msg: Message):
     
-    if msg.chat.type != Chat_type.SUPERGROUP:
+    if msg.chat.type != chattype.SUPERGROUP:
         await msg.reply_text(text="**◍ لا يمكنني مسح الرسالة في مجموعة بدون رابط \n\n √**")
         return
 
