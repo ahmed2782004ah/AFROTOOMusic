@@ -30,7 +30,7 @@ def truncate(text):
     text2 = text2.strip()     
     return [text1,text2]
 
-def crop_center_square(img, output_size, border, crop_scale=1.5):
+def crop_center_box(img, output_size, border, crop_scale=1.5):
     half_the_width = img.size[0] / 2
     half_the_height = img.size[1] / 2
     larger_size = int(output_size * crop_scale)
@@ -112,10 +112,10 @@ async def get_thumb(videoid):
     title_font = ImageFont.truetype("AFROTOMusic/assets/font.ttf", 45)
 
 
-    square_thumbnail = crop_center_square(youtube, 400, 20)
-    squarethumbnail = square_thumbnail.resize((400, 400))
-    square_position = (120, 160)
-    background.paste(square_thumbnail, square_position, square_thumbnail)
+    box_thumbnail = crop_center_box(youtube, 400, 20)
+    box_thumbnail = box_thumbnail.resize((400, 400))
+    box_position = (120, 160)
+    background.paste(box_thumbnail, box_position, box_thumbnail)
 
     text_x_position = 565
 
@@ -142,10 +142,10 @@ async def get_thumb(videoid):
     draw.line([start_point_white, end_point_white], fill="white", width=8)
 
     
-    square_radius = 10 
-    square_position = (end_point_red[0], end_point_red[1])
-    draw.ellipse([square_position[0] - squaree_radius, square_position[1] - square_radius,
-                  square_position[0] + square_radius, square_position[1] + square_radius], fill="red")
+    box_radius = 10 
+    box_position = (end_point_red[0], end_point_red[1])
+    draw.ellipse([box_position[0] - box_radius, box_position[1] - box_radius,
+                  box_position[0] + box_radius, box_position[1] + box_radius], fill="red")
     draw.text((text_x_position, 400), "00:00", (255, 255, 255), font=arial)
     draw.text((1080, 400), duration, (255, 255, 255), font=arial)
 
