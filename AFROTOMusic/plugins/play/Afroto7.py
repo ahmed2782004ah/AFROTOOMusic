@@ -5,7 +5,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 
-@app.on_message(filters.command(["زخرفة", "زخرفه"]))
+@app.on_message(filters.command("زخرفه",prefixes=""))
 async def style_buttons(c, m, cb=False):
     buttons = [[
         InlineKeyboardButton('𝚃𝚢𝚙𝚎𝚠𝚛𝚒𝚝𝚎𝚛', callback_data='style+typewriter'),
@@ -43,7 +43,7 @@ async def style_buttons(c, m, cb=False):
             title = m.text.split(" ", 1)[1]
             await m.reply_text(title, reply_markup=InlineKeyboardMarkup(buttons), reply_to_message_id=m.id)                     
         else:
-            await m.reply_text(text="Ente Any Text Eg:- `/font [text]`")    
+            await m.reply_text(text="**قم بكتابة ما تريد زخرفته هكذا \n\n AhMed زخرفه**")    
     else:
         await m.answer()
         await m.message.edit_reply_markup(InlineKeyboardMarkup(buttons))
@@ -172,6 +172,6 @@ async def style(c, m):
     r, oldtxt = m.message.reply_to_message.text.split(None, 1) 
     new_text = cls(oldtxt)            
     try:
-        await m.message.edit_text(f"`{new_text}`\n\n👆 Click To Copy", reply_markup=m.message.reply_markup)
+        await m.message.edit_text(f"`{new_text}`\n\n👆 اطغط للنسخ", reply_markup=m.message.reply_markup)
     except Exception as e:
         print(e)
