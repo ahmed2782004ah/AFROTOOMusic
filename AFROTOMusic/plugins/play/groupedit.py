@@ -46,7 +46,7 @@ async def pinned(_, message):
 
 # ------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command(["الغاء تثبيت"], prefixes=["/", "@", "", "#"]) & admin_filter)
+@app.on_message(filters.command(["الغاء التثبيت"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def unpin(_, message):
     replied = message.reply_to_message
     chat_title = message.chat.title
@@ -91,7 +91,7 @@ async def deletechatphoto(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("وضع صورة الجروب")& admin_filter)
+@app.on_message(filters.command(["وضع صورة الجروب"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def setchatphoto(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
@@ -117,7 +117,7 @@ async def setchatphoto(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command("وضع اسم الجروب")& admin_filter)
+@app.on_message(filters.command(["وضع اسم الجروب"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def setgrouptitle(_, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -153,7 +153,7 @@ async def setgrouptitle(_, message):
 
 
 
-@app.on_message(filters.command("وضع وصف") & admin_filter)
+@app.on_message(filters.command(["وضع وصف"], prefixes=["/", "@", "", "#"]) & admin_filter)
 async def setg_discription(_, message):
     reply = message.reply_to_message
     chat_id = message.chat.id
@@ -185,13 +185,7 @@ async def setg_discription(_, message):
 
 # --------------------------------------------------------------------------------- #
 
-@app.on_message(filters.command(["بوتي غادر", "عفرتو غادر"], prefixes=["/", "@", "", "#"]) & admin_filter)
-async def bot_leave(_, message):
-    chat_id = message.chat.id
-    text = "*◍ تم الخروج بنجاح من المجموعه \n\n √*"
-    await message.reply_text(text)
-    await app.leave_chat(chat_id=chat_id, delete=True)
-    await delete_served_chat(chat_id)
+
 
 
 # --------------------------------------------------------------------------------- #
