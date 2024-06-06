@@ -5,11 +5,7 @@ from pyrogram.types import Message
 from pyrogram.enums import ParseMode, ChatMemberStatus
 stiklok =[]
 
-@app.on_message(
-    filters.command(["قفل الملصقات","تعطيل الملصقات"])
- 
-   
-)
+@app.on_message(filters.command(["قفل الملصقات"], ""))
 async def block_stickers(client:Client, message:Message):
     get = await client.get_chat_member(message.chat.id, message.from_user.id)
     if get.status in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
@@ -19,7 +15,4 @@ async def block_stickers(client:Client, message:Message):
         return await message.reply_text(f"تم قفل الملصقات \n\n من قبل ←{message.from_user.mention}")
     else:
         return await message.reply_text(f"يا {message.from_user.mention} انت لست مشرفا")
-    
-    
-    
-
+        
