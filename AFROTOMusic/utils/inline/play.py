@@ -67,8 +67,8 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="𝗚𝗥𝗢𝗨𝗣", url=f"https://t.me/YR_HX"),
-            InlineKeyboardButton(text="𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=f"https://t.me/UI_VM"),
+            InlineKeyboardButton(text="𝖦𝖱𝖮𝖴𝖯", url=f"https://t.me/YR_HX"),
+            InlineKeyboardButton(text="𝖢𝖧𝖠𝖭𝖭𝖤𝖫", url=f"https://t.me/UI_VM"),
         ],
         [
             InlineKeyboardButton(text="ْ𓆩⧛ َ 𝘼َِ𝙁َِ𝙍َِ𝙊َِ𝙊َِ𝙏َِ𝙊ِ ┇ عـ๋͜‏ـۂفــ͡ـࢪتوُ ⧚𓆪", url=f"https://t.me/VVYVVJ"),
@@ -89,8 +89,8 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="𝗚𝗥𝗢𝗨𝗣", url=f"https://t.me/YR_HX"),
-            InlineKeyboardButton(text="𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=f"https://t.me/UI_VM"),
+            InlineKeyboardButton(text="𝖦𝖱𝖮𝖴𝖯", url=f"https://t.me/YR_HX"),
+            InlineKeyboardButton(text="𝖢𝖧𝖠𝖭𝖭𝖤𝖫", url=f"https://t.me/UI_VM"),
         ],
         [
             InlineKeyboardButton(text="ْ𓆩⧛ َ 𝘼َِ𝙁َِ𝙍َِ𝙊َِ𝙊َِ𝙏َِ𝙊ِ ┇ عـ๋͜‏ـۂفــ͡ـࢪتوُ ⧚𓆪", url=f"https://t.me/VVYVVJ"),
