@@ -1,8 +1,8 @@
 import random
 from typing import Dict, List, Union
 
-from AFROTOMusic import userbot
-from AFROTOMusic.core.mongo import mongodb
+from AarohiX import userbot
+from AarohiX.core.mongo import mongodb
 
 authdb = mongodb.adminauth
 authuserdb = mongodb.authuser
@@ -10,17 +10,27 @@ autoenddb = mongodb.autoend
 assdb = mongodb.assistants
 blacklist_chatdb = mongodb.blacklistChat
 blockeddb = mongodb.blockedusers
+cleandb = mongodb.cleanmode
 chatsdb = mongodb.chats
 channeldb = mongodb.cplaymode
 countdb = mongodb.upcount
 gbansdb = mongodb.gban
 langdb = mongodb.language
 onoffdb = mongodb.onoffper
+suggdb = mongodb.suggestion
 playmodedb = mongodb.playmode
 playtypedb = mongodb.playtypedb
 skipdb = mongodb.skipmode
 sudoersdb = mongodb.sudoers
 usersdb = mongodb.tgusersdb
+queriesdb = mongodb.queries
+filtersdb = mongodb.filters
+notesdb = mongodb.notes
+fbandb = mongodb
+blacklist_db = mongodb
+nightmodedb = mongodb.nightmode
+afkdb = mongodb.afk
+pretenderdb = mongodb.pretender
 
 # Shifting to memory [mongo sucks often]
 active = []
@@ -28,6 +38,7 @@ activevideo = []
 assistantdict = {}
 autoend = {}
 count = {}
+cleanmode = []
 channelconnect = {}
 langm = {}
 loop = {}
@@ -37,6 +48,7 @@ pause = {}
 playmode = {}
 playtype = {}
 skipmode = {}
+suggestion = {}
 
 
 async def get_assistant_number(chat_id: int) -> str:
@@ -67,7 +79,7 @@ async def set_assistant_new(chat_id, number):
 
 
 async def set_assistant(chat_id):
-    from AFROTOMusic.core.userbot import assistants
+    from AarohiX.core.userbot import assistants
 
     ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
@@ -81,7 +93,7 @@ async def set_assistant(chat_id):
 
 
 async def get_assistant(chat_id: int) -> str:
-    from AFROTOMusic.core.userbot import assistants
+    from AarohiX.core.userbot import assistants
 
     assistant = assistantdict.get(chat_id)
     if not assistant:
@@ -108,7 +120,7 @@ async def get_assistant(chat_id: int) -> str:
 
 
 async def set_calls_assistant(chat_id):
-    from AFROTOMusic.core.userbot import assistants
+    from AarohiX.core.userbot import assistants
 
     ran_assistant = random.choice(assistants)
     assistantdict[chat_id] = ran_assistant
@@ -121,7 +133,7 @@ async def set_calls_assistant(chat_id):
 
 
 async def group_assistant(self, chat_id: int) -> int:
-    from AFROTOMusic.core.userbot import assistants
+    from AarohiX.core.userbot import assistants
 
     assistant = assistantdict.get(chat_id)
     if not assistant:
@@ -644,3 +656,63 @@ async def remove_banned_user(user_id: int):
     if not is_gbanned:
         return
     return await blockeddb.delete_one({"user_id": user_id})
+
+async def is_suggestion(chat_id: int) -> bool:
+    mode = suggestion.get(chat_id)
+    if not mode:
+        user = await suggdb.find_one({"chat_id": chat_id})
+        if not user:
+            suggestion[chat_id] = True
+            return True
+        suggestion[chat_id] = False
+        return False
+    return mode
+
+
+async def suggestion_on(chat_id: int):
+    suggestion[chat_id] = True
+    user = await suggdb.find_one({"chat_id": chat_id})
+    if user:
+        return await suggdb.delete_one({"chat_id": chat_id})
+
+
+async def suggestion_off(chat_id: int):
+    suggestion[chat_id] = False
+    user = await suggdb.find_one({"chat_id": chat_id})
+    if not user:
+        return await suggdb.insert_one({"chat_id": chat_id})
+        
+async def is_cleanmode_on(chat_id: int) -> bool:
+    if chat_id not in cleanmode:
+        return True
+    else:
+        return False
+
+
+async def cleanmode_off(chat_id: int):
+    if chat_id not in cleanmode:
+        cleanmode.append(chat_id)
+
+
+async def cleanmode_on(chat_id: int):
+    try:
+        cleanmode.remove(chat_id)
+    except:
+        pass      
+        
+async def get_queries() -> int:
+    chat_id = 98324
+    mode = await queriesdb.find_one({"chat_id": chat_id})
+    if not mode:
+        return 0
+    return mode["mode"]
+
+
+async def set_queries(mode: int):
+    chat_id = 98324
+    queries = await queriesdb.find_one({"chat_id": chat_id})
+    if queries:
+        mode = queries["mode"] + mode
+    return await queriesdb.update_one(
+        {"chat_id": chat_id}, {"$set": {"mode": mode}}, upsert=True
+    )        
