@@ -71,9 +71,7 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="CHANNEL", url=f"https://t.me/UI_VM"),
         ],
         [
-        InlineKeyboardButton(
-                 "ᯓ 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌ㇱ", url=SUPPORT_CHANNEL
-            ),
+            InlineKeyboardButton(text="ْ𓆩⧛ َ 𝘼َِ𝙁َِ𝙍َِ𝙊َِ𝙊َِ𝙏َِ𝙊ِ ┇ عـ๋͜‏ـۂفــ͡ـࢪتوُ ⧚𓆪", url=f"https://t.me/VVYVVJ"),
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
@@ -95,9 +93,7 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="CHANNEL", url=f"https://t.me/UI_VM"),
         ],
         [
-        InlineKeyboardButton(
-                 "ᯓ 𝙰𝙵𝚁𝙾𝚃𝙾𝙾 ‌ㇱ", url=SUPPORT_CHANNEL
-            ),
+            InlineKeyboardButton(text="ْ𓆩⧛ َ 𝘼َِ𝙁َِ𝙍َِ𝙊َِ𝙊َِ𝙏َِ𝙊ِ ┇ عـ๋͜‏ـۂفــ͡ـࢪتوُ ⧚𓆪", url=f"https://t.me/VVYVVJ"),
         ],
         [
             InlineKeyboardButton(text=_["CLOSE_BUTTON"], callback_data="close"),
