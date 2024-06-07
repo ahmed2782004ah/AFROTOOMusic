@@ -17,9 +17,9 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio, MediumQuality
 from pytgcalls.types.stream import StreamAudioEnded
 
 import config
-from VeGaMusic import LOGGER, YouTube, app
-from VeGaMusic.misc import db
-from VeGaMusic.utils.database import (
+from AFROTOMusic import LOGGER, YouTube, app
+from AFROTOMusic.misc import db
+from AFROTOMusic.utils.database import (
     add_active_chat,
     add_active_video_chat,
     get_lang,
@@ -31,29 +31,13 @@ from VeGaMusic.utils.database import (
     remove_active_video_chat,
     set_loop,
 )
-from VeGaMusic.utils.exceptions import AssistantErr
-from VeGaMusic.utils.formatters import check_duration, seconds_to_min, speed_converter
-from VeGaMusic.utils.inline.play import stream_markup
-from VeGaMusic.utils.stream.autoclear import auto_clean
-from VeGaMusic.utils.thumbnails import get_thumb
+from AFROTOMusic.utils.exceptions import AssistantErr
+from AFROTOMusic.utils.formatters import check_duration, seconds_to_min, speed_converter
+from AFROTOMusic.utils.inline.play import stream_markup
+from AFROTOMusic.utils.stream.autoclear import auto_clean
+from AFROTOMusic.utils.thumbnails import get_thumb
 from strings import get_string
 
-#──██████──────██████───█████████████──────██████████████───████████████████─────────
-#──██──██──────██──██───██─────────██────██────────────██───██────────────██─────────
-#──██──██──────██──██───██──█████████───██───████████████───██───███████──██─────────
-#──██──██──────██──██───██──██──────────██──██──────────────██───██───██──██─────────
-#──██──██──────██──██───██──█▉──────────██──██──────────────██───██───██──██─────────
-#──██──██──────██──██───██──██──────────██──██──────────────██───██───██──██─────────
-#──██──██──────██──█▉───██──██──────────██──██──────────────██───██───██──██─────────
-#──██──██──────██──██───██──█████████───██──█▉───███████────██───███████──██─────────
-#──██───██────██───██───██─────────██───██──██───██────██───██────────────██─────────
-#───██───██──██───██────██──█████████───██──██───████──██───██───███████──██─────────
-#────██───████───██─────██──██──────────██──██─────██──██───██───██───██──██─────────
-#─────██───██───██──────██──██──────────██───██────██──██───██───██───██──██─────────
-#──────██──────██───────██──██───────────██───██───██──██───██───██───██──██─────────
-#───────██────██────────██──█████████─────██──███████──██───██───██───██──██─────────
-#────────██──██─────────██─────────█▉──────██──────────██───██───██───██──██─────────
-#─────────████──────────█████████████───────████████████────███████───██████─────────
 
 autoend = {}
 counter = {}
