@@ -3,6 +3,7 @@ from pyrogram import Client,filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 from config import OWNER_ID as owner_id
 from AFROTOMusic import app
+from pyrogram.types import Message
 
 
 
@@ -92,8 +93,8 @@ async def bugs(_, msg: Message):
 
 
 
-@app.on_callback_query(filters.regex("قفل الصور"))
-async def close_send_photo(query :CallbackQuery):
+@app.on_message(filters.regex("قفل الصور"))
+async def close_send_photo(client:Client, message:Message):
     is_admin = await app.get_chat_member(query.message.chat.id, query.from_user.id)
     if not is_admin.privileges.can_delete_messages:
         await query.answer("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ʀɪɢʜᴛs ᴛᴏ ᴄʟᴏsᴇ ᴛʜɪs.", show_alert=True)
