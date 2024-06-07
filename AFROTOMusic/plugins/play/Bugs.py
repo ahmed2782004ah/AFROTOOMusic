@@ -70,7 +70,7 @@ async def bugs(_, msg: Message):
                 ),
             )
             await app.send_photo(
-                -1001816984560,
+                -1002020396487,
                 photo="https://te.legra.ph/file/70872d57cab08aa096a04.jpg",
                 caption=f"{bug_report}",
                 reply_markup=InlineKeyboardMarkup(
@@ -93,7 +93,7 @@ async def bugs(_, msg: Message):
 
 
 @app.on_callback_query(filters.regex("قفل الصور"))
-async def close_send_photo(_,  query :CallbackQuery):
+async def close_send_photo(query :CallbackQuery):
     is_admin = await app.get_chat_member(query.message.chat.id, query.from_user.id)
     if not is_admin.privileges.can_delete_messages:
         await query.answer("ʏᴏᴜ ᴅᴏɴ'ᴛ ʜᴀᴠᴇ ʀɪɢʜᴛs ᴛᴏ ᴄʟᴏsᴇ ᴛʜɪs.", show_alert=True)
