@@ -1,30 +1,54 @@
-# This code is written by (C) TheTeamAlexa bot will send message to log group when someone add
-# this bot to new group make sure to star all projects
-# Copyright (C) 2021-2022 by Alexa_Help@ Github, < TheTeamAlexa >.
-# A Powerful Music Bot Property Of Rocks Indian Largest Chatting Group
-# All rights reserved. © Alisha © Alexa © Yukki
-
 from pyrogram import Client, filters
-from pyrogram.types import Message
-from AFROTOMusic import app
-from AFROTOMusic.utils.database import get_served_chats
+from AFROTOMusic.core.userbot import Userbot
+from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from config import OWNER_ID
+from AFROTOMusic import app
 
 
-async def lul_message(chat_id: int, message: str):
-    await app.send_message(chat_id=chat_id, text=message)
+userbot = Userbot()
 
+
+async def new_message(chat_id: int, message: str, reply_markup=None):
+    await app.send_message(chat_id=chat_id, text=message, reply_markup=reply_markup)
 
 @app.on_message(filters.new_chat_members)
 async def on_new_chat_members(client: Client, message: Message):
     if (await client.get_me()).id in [user.id for user in message.new_chat_members]:
-        added_by = message.from_user.first_name if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
-        matlabi_jhanto = message.chat.title
-        served_chats = len(await get_served_chats())
+        added_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
+        title = message.chat.title
+        username = f"@{message.chat.username}"
         chat_id = message.chat.id
-        if message.chat.username:
-            chatusername = f"@{message.chat.username}"
-        else:
-            chatusername = "ᴩʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
-        lemda_text = f"مرحبا عزيزي المطور لقد تم اضافه البوت لمجموعه جديده ..\n\n┏━━━━━━━━━━━━━━━━━┓\n┣★ الاسم › : {matlabi_jhanto}\n┣★ايدي الدردشة › : {chat_id}\n┣★ يوزر الدردشه › : {chatusername}\n┣★مجموع الدردشات › : {served_chats}\n┣★اضيف بواسطة › :\n┗━━━ {added_by}"
-        await lul_message(OWNER_ID, lemda_text)
+        riruru = f"✫ <b><u>جـروب جـديد 🤸‍♂️🖤.</u></b> :\n\nالايدي : {chat_id}\nمعـرف المجموعه : {username}\nالاسـم : {title}\n\nإضـيف بواسطه : {added_by}"
+        reply_markup = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            message.from_user.first_name,
+            user_id=message.from_user.id
+        )
+    ]
+])
+
+        
+        await new_message(OWNER_ID, riruru, reply_markup)
+
+@app.on_message(filters.left_chat_member)
+async def on_left_chat_member(client: Client, message: Message):
+    if (await client.get_me()).id == message.left_chat_member.id:
+        remove_by = message.from_user.mention if message.from_user else "يـوزر غير معروف"
+        title = message.chat.title
+        username = f"@{message.chat.username}"
+        chat_id = message.chat.id
+        rirurubye = f"✫ <b><u>غادر جـروب 🥲♥.</u></b> :\n\nالايدي : {chat_id}\nمعـرف المجموعه : {username}\nالاسـم : {title}\n\nطـرد بواسـطه : {remove_by}"
+        reply_markup = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            message.from_user.first_name,
+            user_id=message.from_user.id
+        )
+    ]
+])
+
+        
+        await new_message(OWNER_ID, rirurubye, reply_markup)
+        await userbot.one.start()
+        await userbot.one.leave_chat(chat_id)
