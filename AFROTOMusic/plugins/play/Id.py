@@ -39,7 +39,7 @@ async def iddopen(client, message):
 
 
 @app.on_message(
-    command(["ايدي","id","ا"])
+    command(["ايدي","id"])
     & filters.group
   
 )
