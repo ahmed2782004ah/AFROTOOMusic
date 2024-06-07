@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from AarohiX import app
+from AFROTOMusic import app
 
 @app.on_message(filters.command("معلومات المجموعه", prefixes=""))
 async def get_group_status(_, message: Message):
