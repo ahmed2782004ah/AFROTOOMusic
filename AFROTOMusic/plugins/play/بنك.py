@@ -976,9 +976,9 @@ def top_money(client, message):
     response = "أعلى الأموال في البنك:\n\n"
     
     for account_id in top_accounts:
-        account_username = client.get_chat(account_id).username
+        account_firstname = client.get_chat(account_firstname).username
         account_balance = bank_data['accounts'][account_id]['balance']
-        response += f"@{account_username}: {account_balance} دولار\n"
+        response += f"@{account_firstname}: {account_balance} دولار\n"
     
     client.send_message(message.chat.id, response)
 
