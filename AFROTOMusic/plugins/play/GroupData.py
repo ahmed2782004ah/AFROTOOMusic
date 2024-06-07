@@ -6,7 +6,7 @@ from pyrogram import enums
 
 from AFROTOMusic import app
 
-@app.on_message(~filters.private & filters.command(["معلومات الجروب"]), group=2)
+@app.on_message(filters.command("معلومات الجروب", prefixes=""))
 async def instatus(app, message):
     start_time = time.perf_counter()
     user = await app.get_chat_member(message.chat.id, message.from_user.id)
@@ -37,16 +37,13 @@ async def instatus(app, message):
         timelog = "{:.2f}".format(end_time - start_time)
         await sent_message.edit(f"""
 **➖➖➖➖➖➖➖
-↢اسم المجموعة {message.chat.title} ✅
-↢عدد الأعضاء : [ {count} ]🫂
-➲ معرف المجموعة : {chat.id}
-➲ اليوزر : @{chat_username}
-➲ البايو : {chat_description or 'N/A'}
+↢اسم المجموعة {message.chat.title} 
+↢عدد الأعضاء : [ {count} ]
 ➖➖➖➖➖➖➖
-↢عدد البوتات : {bot}💡
-↢الحسابات المحذوفة : {deleted_acc}🧟
-↢المحظورين : {banned}🚫
-↢الحسابات المميزة  : {premium_acc}🎁
+↢عدد البوتات : {bot}
+↢الحسابات المحذوفة : {deleted_acc}
+↢المحظورين : {banned}
+↢الحسابات المميزة  : {premium_acc}
 ➖➖➖➖➖➖➖
 الوقت المستغرق : {timelog} S**""")
     else:
