@@ -1,5 +1,5 @@
 from datetime import datetime
-from pyrogram import filters
+from pyrogram import Client,filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 from config import OWNER_ID as owner_id
 from AFROTOMusic import app
