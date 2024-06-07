@@ -12,6 +12,15 @@ from AFROTOMusic import app
 from asyncio import gather
 from pyrogram.errors import FloodWait
 
+
+_      _____   ____     ___    _____    ___     ___
+   / \    |  ___| |  _ \   / _ \  |_   _|  / _ \   / _ \
+  / _ \   | |_    | |_) | | | | |   | |   | | | | | | | |
+ / ___ \  |  _|   |  _ <  | |_| |   | |   | |_| | | |_| |
+/_/   \_\ |_|     |_| \_\  \___/    |_|    \___/   \___
+
+
+
 @app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
 async def vgdg(client: Client, message: Message):
       if len(message.command) >= 2:
