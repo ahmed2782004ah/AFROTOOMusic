@@ -13,14 +13,6 @@ from asyncio import gather
 from pyrogram.errors import FloodWait
 
 
-_      _____   ____     ___    _____    ___     ___
-   / \    |  ___| |  _ \   / _ \  |_   _|  / _ \   / _ \
-  / _ \   | |_    | |_) | | | | |   | |   | | | | | | | |
- / ___ \  |  _|   |  _ <  | |_| |   | |   | |_| | | |_| |
-/_/   \_\ |_|     |_| \_\  \___/    |_|    \___/   \___
-
-
-
 @app.on_message(command(["المالك", "صاحب الخرابه", "المنشي"]) & filters.group)
 async def vgdg(client: Client, message: Message):
       if len(message.command) >= 2:
@@ -29,7 +21,7 @@ async def vgdg(client: Client, message: Message):
             chat_id = message.chat.id
             f = "administrators"
             async for member in client.iter_chat_members(chat_id, filter=f):
-               if member.status == "creator":
+               if member.status == "Creator":
                  id = member.user.id
                  key = InlineKeyboardMarkup([[InlineKeyboardButton(member.user.first_name, user_id=id)]])
                  m = await client.get_chat(id)
