@@ -7,7 +7,7 @@ from config import OWNER_ID
 
 async def play_logs(message, streamtype):
     if await is_on_off(2):
-        logger_text = f"""━━━━ılıı◁ ❚ ɢꝛᴏᴜᴘ ❚  ▷ıılı━━━━
+        logger_text = f"""━━━━ılıı❚𝚂𝙾𝚄𝚁𝙲𝙴 𝙰𝙵𝚁𝙾𝚃𝙾𝙾❚ıılı━━━━
 <b>╭⦿<b>{app.mention}
 <b>╰⦿ ᴘʟᴧʏ ⸢ɢꝛᴏᴜᴘ⸥ ᴍᴜsɪᴄ♪</b>
 
