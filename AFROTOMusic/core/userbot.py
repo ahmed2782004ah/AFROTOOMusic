@@ -4,6 +4,23 @@ import config
 
 from ..logging import LOGGER
 
+#──██████──────██████───█████████████──────██████████████───████████████████─────────
+#──██──██──────██──██───██─────────██────██────────────██───██────────────██─────────
+#──██──██──────██──██───██──█████████───██───████████████───██───███████──██─────────
+#──██──██──────██──██───██──██──────────██──██──────────────██───██───██──██─────────
+#──██──██──────██──██───██──█▉──────────██──██──────────────██───██───██──██─────────
+#──██──██──────██──██───██──██──────────██──██──────────────██───██───██──██─────────
+#──██──██──────██──█▉───██──██──────────██──██──────────────██───██───██──██─────────
+#──██──██──────██──██───██──█████████───██──█▉───███████────██───███████──██─────────
+#──██───██────██───██───██─────────██───██──██───██────██───██────────────██─────────
+#───██───██──██───██────██──█████████───██──██───████──██───██───███████──██─────────
+#────██───████───██─────██──██──────────██──██─────██──██───██───██───██──██─────────
+#─────██───██───██──────██──██──────────██───██────██──██───██───██───██──██─────────
+#──────██──────██───────██──██───────────██───██───██──██───██───██───██──██─────────
+#───────██────██────────██──█████████─────██──███████──██───██───██───██──██─────────
+#────────██──██─────────██─────────█▉──────██──────────██───██───██───██──██─────────
+#─────────████──────────█████████████───────████████████────███████───██████─────────
+
 assistants = []
 assistantids = []
 
@@ -11,28 +28,28 @@ assistantids = []
 class Userbot(Client):
     def __init__(self):
         self.one = Client(
-            name="AFROTOOAss1",
+            name="VeGaOAss1",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING1),
             no_updates=True,
         )
         self.two = Client(
-            name="AFROTOOAss2",
+            name="VeGaOAss2",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING2),
             no_updates=True,
         )
         self.three = Client(
-            name="AFROTOOAss3",
+            name="VeGaOAss3",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING3),
             no_updates=True,
         )
         self.four = Client(
-            name="AFROTOOAss4",
+            name="VeGaOAss4",
             api_id=config.API_ID,
             api_hash=config.API_HASH,
             session_string=str(config.STRING4),
@@ -56,17 +73,16 @@ class Userbot(Client):
             except:
                 pass
             assistants.append(1)
-            try:
-                await self.one.send_message(config.LOGGER_ID, "» تم تشغيـل الحسـاب المسـاعـد .. بنجـاح ✅")
-            except:
-                LOGGER(__name__).error(
-                    "Assistant Account 1 has failed to access the log Group. Make sure that you have added your assistant to your log group and promoted as admin!"
+            get_me = await self.one.get_me()
+            self.one.username = get_me.username
+            self.one.id = get_me.id
+            assistantids.append(get_me.id)
+            if get_me.last_name:
+                self.one.name = (
+                    get_me.first_name + " " + get_me.last_name
                 )
-                exit()
-            self.one.id = self.one.me.id
-            self.one.name = self.one.me.first_name
-            self.one.username = self.one.me.username
-            assistantids.append(self.one.id)
+            else:
+                self.one.name = get_me.first_name
             LOGGER("ميــوزك عفرتو").info(f"تم بدء تشغيل الحساب المساعد {self.one.name} ...✓")
 
         if config.STRING2:
@@ -88,7 +104,7 @@ class Userbot(Client):
             self.two.name = self.two.me.mention
             self.two.username = self.two.me.username
             assistantids.append(self.two.id)
-            LOGGER("ميــوزك عفرتو").info(f"Assistant Two Started as {self.two.name}")
+            LOGGER("ميــوزك عفروتو").info(f"Assistant Two Started as {self.two.name}")
 
         if config.STRING3:
             await self.three.start()
@@ -168,3 +184,4 @@ class Userbot(Client):
                 await self.five.stop()
         except:
             pass
+
