@@ -23,7 +23,7 @@ from ..logging import LOGGER
 #─────────████──────────█████████████───────████████████────███████───██████─────────
 
 
-class Zoro(Client):
+class Zelzaly(Client):
     def __init__(self):
         LOGGER("ميــوزك عفرتو").info(f"جارِ بدء تشغيل البوت . . .")
         super().__init__(
