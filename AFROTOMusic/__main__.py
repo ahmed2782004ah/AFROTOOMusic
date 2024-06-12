@@ -5,11 +5,11 @@ from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
 import config
-from AFRTMUSIC import LOGGER, app, userbot
-from AFRTMUSIC.core.call import Zelzaly
-from AFRTMUSIC.misc import sudo
-from AFRTMUSIC.plugins import ALL_MODULES
-from AFRTMUSIC.utils.database import get_banned_users, get_gbanned
+from AFROTOMusic import LOGGER, app, userbot
+from AFROTOMusic.core.call import Zelzaly
+from AFROTOMusic.misc import sudo
+from AFROTOMusic.plugins import ALL_MODULES
+from AFROTOMusic.utils.database import get_banned_users, get_gbanned
 from config import BANNED_USERS
 
 
