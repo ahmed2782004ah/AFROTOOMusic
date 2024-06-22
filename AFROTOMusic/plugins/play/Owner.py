@@ -37,7 +37,7 @@ async def ownner(client: Client, message: Message):
        m = await app.get_users(int(x[0]))
        if m.photo:
          async for photo in app.get_chat_photos(x[0],limit=1):
-          await message.reply_photo(photo.file_id,caption=f"<b>╭✪ᚐɴᴧᴍᴇ : {m.first_name}\n│᚜✦ᴜsᴇꝛ : @{m.username}\n╰✪ᚐɪᴅ : <code>{m.id}</code>\n╭✪ᚐᴄʜᴧᴛ : {message.chat.title}\n╰✪ᚐɪᴅ.ᴄʜᴧᴛ : <code>{message.chat.id}</code></b>",reply_markup=InlineKeyboardMarkup(
+          await message.reply_photo(photo.file_id,caption=f"<b> ¦𝙽𝙰𝙼𝙴 : {m.first_name}\n¦𝚄𝚂𝙴𝚁  : @{m.username}\n ¦𝙸𝙳 : <code>{m.id}</code>\n ¦𝙲𝙷𝙰𝚃 : {message.chat.title}\n ¦𝙸𝙳.𝙲𝙷𝙰𝚃 : <code>{message.chat.id}</code></b>",reply_markup=InlineKeyboardMarkup(
              [              
                [          
                  InlineKeyboardButton(m.first_name, url=f"https://t.me/{m.username}")
@@ -46,9 +46,9 @@ async def ownner(client: Client, message: Message):
             )                     
           )
        else:
-        await message.reply_text(f"b>╭✪ᚐɴᴧᴍᴇ : {m.first_name}\n│᚜✦ᴜsᴇꝛ : @{m.username}\n╰✪ᚐɪᴅ : <code>{m.id}</code>\n╭✪ᚐᴄʜᴧᴛ : {message.chat.title}\n╰✪ᚐɪᴅ.ᴄʜᴧᴛ : <code>{message.chat.id}</code></b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(m.first_name, url=f"https://t.me/{m.username}")],]))
+        await message.reply_text(f"b> ¦𝙽𝙰𝙼𝙴 : {m.first_name}\n¦𝚄𝚂𝙴𝚁  : @{m.username}\n ¦𝙸𝙳 : <code>{m.id}</code>\n ¦𝙲𝙷𝙰𝚃 : {message.chat.title}\n ¦𝙸𝙳.𝙲𝙷𝙰𝚃 : <code>{message.chat.id}</code></b>", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(m.first_name, url=f"https://t.me/{m.username}")],]))
     else:
-        await message.reply_text("عزيزي المالك هذا حساب محذوف\n༄")
+        await message.reply_text("اكونت المالك محذوف \n༄")
 
                         
                     
