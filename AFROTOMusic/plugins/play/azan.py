@@ -7,7 +7,7 @@ import random
 from datetime import datetime
 import requests
 import pytz
-from AFROTOMusic.core.call import Zelzaly
+from AFROTOMusic.core.call import Zelzaly ##غيى كلمه دي ف ملف 
 from pytgcalls import PyTgCalls, StreamType
 from pytgcalls.types.input_stream import AudioPiped, AudioVideoPiped
 from AFROTOMusic.core.call import Zelzaly
@@ -40,12 +40,12 @@ async def azaan(c, msg):
       
 async def kill():
   for i in chat:
-    await Dil.force_stop_stream(i)
+    await Zelzaly.force_stop_stream(i)
 
 
 async def play(i):
-  assistant = await group_assistant(Dil,i)
-  file_path = "./AFROTOMusic/assets/azan.m4a"
+  assistant = await group_assistant(Zoro,i)
+  file_path = "AFROTOMusic/assets/azan.m4a"
   stream = AudioPiped(file_path, audio_parameters=HighQualityAudio())
   try:
       await assistant.join_group_call(
@@ -55,7 +55,7 @@ async def play(i):
       )
   except NoActiveGroupCall:
     try:
-        await Dil.join_assistant(i,i)
+        await Zelzaly.join_assistant(i,i)
     except Exception as e:
        await app.send_message(i,f"{e}")
   except TelegramServerError:
@@ -95,7 +95,7 @@ def prayer_time():
          return "العشاء"
    except Exception as e:
        asyncio.sleep(5)
-       print(e) 
+       print(e)  
 
 async def azkar():
   while not await asyncio.sleep(2):
@@ -103,7 +103,7 @@ async def azkar():
      prayer = prayer_time()
      await kill()
      for i in chat:
-       await app.send_message(i, f"حان الان وقت اذان {prayer} بالتوقيت المحلي للقاهرة ❤️🇪🇬")
+       await app.send_message(i, f"حان الان وقت اذان {prayer} بالتوقيت المحلي للقاهرة 🥰♥️")
        await play(i)
      await asyncio.sleep(174)
      await kill()
